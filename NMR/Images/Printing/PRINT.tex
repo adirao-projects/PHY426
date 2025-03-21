@@ -1,0 +1,261 @@
+\documentclass[reprint, amsmath,amssymb, amsthm, aip, cp]{revtex4-2}
+
+% LaTeX Template by Aditya Rao
+%=================== HEADER =====================%
+\usepackage[left=0.7in, right=0.7in, top=0.7in, bottom=0.7in]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+
+% Other Preamble
+\usepackage[leftmargin=1cm, rightmargin=1cm]{mdframed}
+\usepackage[colorlinks, allcolors=black]{hyperref}
+
+
+% Code Formatting
+\usepackage{listings}
+% Figures & Drawings
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{caption}
+
+% Physics & Mathematics
+\usepackage{physics}
+\usepackage{mathtools}
+%================================================%
+
+%=================== SETUP ======================%
+% Page styling
+\pagestyle{fancy}
+\pagenumbering{arabic}
+
+% Listings Setup
+\lstset{
+	basicstyle=\footnotesize,
+	numbers=left,
+	stepnumber=1,
+	showstringspaces=false,
+	tabsize=1,
+	breaklines=true,
+	breakatwhitespace=false
+}
+
+% Date Formatting
+\def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+%================================================%
+
+%=================== MACROS =====================%
+% The main stuff
+\let\origthefigure\thefigure
+
+\newcommand{\thedate}{00.00}
+\newcommand{\figbig}{0.9\linewidth}
+\newcommand{\figsml}{0.7\linewidth}
+\newcommand{\newdate}[1]{\newpage\renewcommand{\thedate}{#1}\section*{Date: \thedate}}
+\newcommand{\updatefig}[1]{\renewcommand{\thefigure}{\textbf{\thedate #1.\origthefigure}}\setcounter{figure}{0}}
+
+\newcommand{\updatetab}[1]{\renewcommand{\thefigure}{\textbf{\thedate #1.\origthefigure}}\setcounter{table}{0}}
+
+\newcommand{\updatecountfig}[1]{\setcounter{figure}{#1}}
+\newcommand{\updatecounttab}[1]{\setcounter{table}{#1}}
+
+\newcommand{\mdfigure}[2]{
+	\begin{mdframed}
+	\begin{figure}[H]
+		\centering
+		\captionsetup{width=\figsml}
+		\includegraphics[width=\figsml, max height=0.4\textheight]{#1}
+		\caption{#2}
+	\end{figure}
+	\end{mdframed}
+}
+
+\newcommand{\mdtable}[2]{
+	\begin{mdframed}
+	\begin{figure}[H]
+		\centering
+		\captionsetup{width=\figsml}
+		\includegraphics[width=\figsml, max height=0.4\textheight]{#1}
+		\caption{#2}
+	\end{figure}
+	\end{mdframed}
+}
+
+% I like the Griffiths' script r
+%Script r (vector)
+\newcommand{\brc}{\resizebox{!}{1.3ex}{
+    \begin{tikzpicture}[>=round cap]
+        \clip (0.085em,-0.1ex) rectangle (0.61em,0.875ex);
+        \draw [line width=.2ex, <->, rounded corners=0.13ex] (0.1em,0.1ex) .. controls (0.24em,0.4ex) .. (0.35em,0.8ex) .. controls (0.29em,0.725ex) .. (0.25em,0.6ex) .. controls (0.7em,0.8ex) and (0.08em,-0.4ex) .. (0.55em,0.25ex);
+    \end{tikzpicture}
+}}
+
+%Script r with a hat (unit vector)
+\newcommand{\hrc}{\hat{\brc}}
+
+% References and Sourcing
+\newcommand{\figref}[1]{Fig. \ref{#1}}
+\newcommand{\source}[1]{\caption*{Source: {#1}} }
+%================================================%
+
+%==================== INFO ======================%
+\newcommand{\name}{Aditya K. Rao}
+\newcommand{\expname}{NMR}
+%================================================%
+
+\begin{document}
+\nocite{*}
+\lhead{\name\vspace{0.1cm}}
+\chead{\textbf{Advanced Physics Laboratory} \\ \expname\vspace{0.1cm}}
+\rhead{\textbf{LAST UPDATED:} \mydate\vspace{0.1cm}}
+
+
+\newdate{EXAMPLE}
+\mdfigure{example-image}{Example image for templating}
+
+\newdate{02.04}
+\updatefig{A}
+
+
+\mdfigure{../02.04/nmrtest.png}{
+	Sketch of r.f. pulse from \cite{manual} as a test if my printing format works as expected. The bottom figure shows r.f. pulses at the LF-HF OUTPUT for RC FILTER set to HF.
+}
+
+\newdate{02.07}
+
+\mdfigure{../02.07/setup.jpg}{Initial experimental setup for NMR.}
+
+\newdate{02.11}
+
+\mdfigure{../02.11/nmrtest.png}{Conceptual sketch of r.f. pulses at the PROBE HEAD from the lab manual \cite{manual}.}
+
+\mdfigure{../02.11/nmrtest2.png}{r.f. pulses at the LF-HF Output for RC Filter set to HF from the lab manual \cite{manual}.}
+
+\updatefig{D}
+
+\mdfigure{../02.11/scope_12.png}{Initial Reading from Osciilloscope. Notice Peaks}
+
+\mdfigure{../02.11/scope_13.png}{Scope readings using zoom mode. Clearly we can see the packet.}
+
+\mdfigure{../02.11/scope_14.png}{Another scope reading using zoom mode. Maximum voltage observed $V_{pp} = 31.5 \pm 0.5\,\text{V}$}
+
+\updatefig{E}
+
+\mdfigure{../02.11/fidq.png}{FID Signal (Channel One) from Osciilloscope with Difference Signal From Q Output (Channgel Two)}
+
+\mdfigure{../02.11/fidqzoom.png}{Zoomed in version of the previous figure.}
+
+\mdfigure{../02.11/fidqi.png}{FID Signal (Channel One) from Osciilloscope with Difference Signal From Q Output (Channgel Two) and Difference Signal from I Output (Channel Three)}
+
+\mdfigure{../02.11/fidqizoom.png}{Zoomed in version of the previous figure.}
+
+
+\updatefig{F}
+\mdfigure{../02.11/fidteachspinexpected}{Expected FID and Difference signals from the Teach Spin Cw Laboratory Manual \cite[p.~III-7]{teachspin}}
+
+%\updatetab{A}
+\newdate{02.14}
+
+\updatefig{A}
+\mdfigure{../02.14/heavyminoil.png}{New Data Obtained from scope for heavy mineral oil. We can clearly see a more distinct pulse width forming as is expected from Fig. 02.11F.1 and from the `spin echo' section of the lab manual \cite{manual}.}
+
+
+\updatefig{B}
+\mdfigure{../02.14/lightminoil.png}{Peak obtained when measuring light mineral oil. Clearly, as compared to Fig. 02.14A.1, there peak is signifianly smaller.}
+
+
+
+\newdate{02.25}
+\mdfigure{../02.25/HMO1Raw.png}{Raw Pulse data obtained from the Osciilloscope. We will casterate this dataset to fit the tail of the exponential.}
+
+
+\mdfigure{../02.25/HMO1Tail.png}{Obtained fit using the equation in the graph. Obtained parameters are as follows, $A = 2.0 \pm 70000$ $\tau = -2233 \pm 4$, and $x_0 = 0.0002 \pm 16$ with a $\chi^2_{\text{red}}=0.2$.}
+
+\newdate{02.28}
+\updatefig{A}
+\mdfigure{../ucat/scope_41.png}{Differerent signal than previous measurements observed. Need to retune and adjust parameters.}
+
+\updatefig{B}
+\mdfigure{../ucat/scope_44.png}{Possible Spin Echo observed. First peak is from a $\frac{\pi}{2}$-pulse, second peak is a $\pi$-pulse. The third peak may be the observation of a spin echo.}
+
+\newdate{03.03}
+% \updatefig{A}
+% \mdfigure{../ucat/scope_45.png}{Scope 45 image, possible spin echo.}
+\updatefig{A}
+\mdfigure{../ucat/fft.png}{Data obtained from taking the fourier transform of the I signal data. Notice the existance of two distinct peaks. One being the mean and the other being the resonance frequency.}
+
+\mdfigure{../ucat/fft2.png}{Mean removed fourier transform.}
+
+\mdfigure{../ucat/fft3.png}{Mean removed fourier transform (new).}
+
+\updatefig{B}
+\mdfigure{../ucat/49dif.png}{Resultant I-signal observed after tuning using fourier transofmr method suggested by SKS.}
+
+\mdfigure{../ucat/49sig.png}{Corresponding signal.}
+
+\newdate{03.04}
+\updatefig{A}
+\mdfigure{../ucat/scope_50.png}{Result of a $\pi$ pulse with pulse length $\ell_\pi = 6.94\,\mu\text{s}$.}
+
+\updatefig{B}
+\mdfigure{../ucat/scope_54.png}{Relavent output with new pulse length parameters.}
+
+\updatefig{D}
+\mdfigure{../ucat/scope_52.png}{Output signal from distilled water sample. Notice that the signal strength is quite low and very noisy.}
+
+\newpage
+\updatefig{F}
+\mdfigure{../ucat/opamp.jpg}{Breadboard of non-inverting op-amp.}
+
+\newpage
+
+\updatefig{G}
+\mdfigure{../ucat/scope_54.png}{Noisy small signal observed.}
+
+\mdfigure{../ucat/56sig.png}{Observation for Distilled Water.}
+
+\mdfigure{../ucat/57sig.png}{Observation for Distilled Water.}
+
+\mdfigure{../ucat/58sig.png}{Observation for Distilled Water.}
+
+\updatefig{H}
+\mdfigure{../ucat/60sig.png}{Observation for Light Mineral Oil.}
+
+\mdfigure{../ucat/61sig.png}{Observation for Light Mineral Oil.}
+
+\mdfigure{../ucat/62sig.png}{Observation for Light Mineral Oil.}
+
+\updatefig{I}
+\mdfigure{../ucat/64sig.png}{Observation for Heavy Mineral Oil.}
+
+\mdfigure{../ucat/65sig.png}{Observation for Heavy Mineral Oil.}
+
+\mdfigure{../ucat/67sig.png}{Observation for Heavy Mineral Oil.}
+
+\updatefig{J}
+\mdfigure{../ucat/68sig.png}{Playing around with pulses to see if we can implement a unitary gate. This is more just exploration with no expectation of results.}
+
+
+
+\newdate{03.05}
+\updatefig{A}
+\mdfigure{../../Analysis/figures/lmofid.png}{$A = 125.02730736861422 \pm inf$, $\tau = -159.21440895422927 \pm inf$, $x_0 = -0.711144259571313 \pm inf$ $\chi^2_{\text{red}}$ = 2.0}
+
+
+
+\updatefig{B}
+\mdfigure{../../Analysis/figures/hmofid.png}{$A = 0.0 \pm 9000.0$, $\tau = -5456.4 \pm 90.0$, $x_0 = 0.0 \pm 200.0$, $\chi^2_{\text{red}}$ = 0.003}
+
+
+\updatefig{C}
+\mdfigure{../../Analysis/figures/h2ofid.png}{$A = 0.650974392642326 \pm 1436422.7844434683$, $\tau = 2345.446650108936 \pm 224.61004122688507$, $x_0 = 0.0003897026532702442 \pm 937.2177888340759$, $\chi^2_{\text{red}}$ = 2.0}
+
+\clearpage
+\appendix
+\bibliography{references.bib}
+\end{document}

@@ -1,0 +1,94 @@
+%=================== HEADER =====================%
+% Basic Document Formatting
+\documentclass[12pt,a4paper]{article}
+%\documentclass[reprint, amsmath,amssymb, aps]{revtex4-2}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[left=0.7in, right=0.7in, top=0.5in, bottom=0.5in]{geometry}
+
+% Other Preamble
+\input{preamble/preamble}
+\input{preamble/macros}
+
+
+% \usepackage[%
+% linewidth=1pt,
+% middlelinecolor= black,
+% middlelinewidth=0.4pt,
+% roundcorner=1pt,
+% topline = false,
+% rightline = True,
+% bottomline = false,
+% rightmargin=0pt,
+% skipabove=0pt,
+% skipbelow=0pt,
+% leftmargin=-1cm,
+% innerleftmargin=1cm,
+% innerrightmargin=0pt,
+% innertopmargin=0pt,
+% innerbottommargin=0pt,
+% ]{mdframed}
+
+\usepackage{mdframed}
+
+%\mdfsetup{
+%	tikzsetting={dashed, line width = 1pt}
+%}
+
+\newmdenv[tikzsetting={dashed, line width = 1pt}]{cutbound}
+%============ Document Information ==============%
+\newcommand\course{SUB123} %[COURSE INFORMATION!!!]
+\newcommand\psetnum{Assignment \#}  %[PROBLEM SET NUMBER!!!]
+\newcommand\yourname{Aditya Rao 1008307761}  %[NAME AND STUDENT NUMBER!!!]
+\newcommand{\subject}{\large{\course}}
+%================ END OF HEADER =================%
+
+% LaTeX Template by Aditya Rao
+
+%\newcommand{\specialformattingstuff}{01.10} % or use \textasteriskcentered
+
+
+\let\origthefigure\thefigure
+
+\DeclareCaptionFormat{cancaption}{#1#2#3\par} % Normal format actually
+\DeclareCaptionLabelFormat{cancaptionlabel}{#1 \specialformattingstuff#2}
+
+%\newcommand[3]{\thefigure}{\thedate}{}{}
+\newcommand{\thedate}{00.00}
+%\newcommand{\updatefig}[2]{\renewcommand{\thefigure}{#1}{#2}.\origthefigure}
+\begin{document}
+\begin{mdframed}
+	%\maketitle
+	%\tableofcontents
+
+	\renewcommand{\thedate}{01.10}
+	\section*{Date: 01.10}
+	\renewcommand{\thefigure}{\thedate A.\origthefigure}
+
+	%\captionsetup[figure]{format=cancaption,labelformat=cancaptionlabel}
+	%\updatefig{\thedate}{A}
+
+	\renewcommand{\thefigure}{\thedate A.\origthefigure}
+	\begin{mdframed}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{example-image-a}
+		\caption{}
+		\label{fig:01.10}
+	\end{figure}
+	\end{mdframed}
+
+
+	%\renewcommand{\thedate}{01.11}
+	%\updatefig{A}
+	%\renewcommand{\thefigure}{01.11A.\origthefigure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{example-image-b}
+		\caption{}
+		\label{fig:01.11}
+	\end{figure}
+
+\end{mdframed}
+\end{document}

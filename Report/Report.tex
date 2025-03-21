@@ -1,0 +1,225 @@
+\documentclass[aip, cp, amsmath, amssymb, reprint, nofootinbib]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{bm}
+
+\input{preamble/preamble}
+\input{preamble/tikz}
+\input{preamble/macros}
+
+
+% ========================================= %
+% LaTeX Template by Aditya K. Rao
+% Contact at adi.rao@mail.utoronto.ca
+
+% Change for each document [!!!]
+\newcommand\course{PHY426}	% Course Code [!!!]
+\newcommand\doctitle{Quantitative Verification of Thin Lense Equation} % Report Title [!!!]
+\newcommand\firstauthorname{Report Author}
+\newcommand\firstauthorstdnum{Student Number: 0000000000}
+\newcommand\firstauthoremail{report.author@mail.utoronto.ca}
+%\newcommand\secondauthorname{Author Two}
+%\newcommand\secondauthorstdnum{Student Number: 0000000000}
+%\newcommand\secondauthoremail{report.author@mail.utoronto.ca}
+\newcommand\advname{Tahir Shaaran\space} % Advisor Name [!!!]  
+\newcommand\taname{Sean Crawford\space} % Advisor Name [!!!] 
+
+\newcommand{\location}{MP222} % Location [!!!]
+% ========================================= %
+ 
+% ============== EQUIPMENT ================ %
+
+\newcommand{\oscope}{\texttt{DSOX1202G}\space}
+\newcommand{\pdiode}{\texttt{DET36A2}\space}
+\newcommand{\hene}{\texttt{HNLS008L}\space}
+\newcommand{\cam}{\texttt{Alium 1800 U-500}\space}
+
+% ========================================= %
+
+
+
+%\pagenumbering{gobble}
+\usepackage{listings}
+
+\renewcommand\lstlistingname{Code Reference}
+\renewcommand\lstlistlistingname{Code Reference}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\usepackage{circuitikz}
+
+%\addbibresource{references.bib}
+\usepackage{lipsum}
+\usetikzlibrary{calc}
+
+\begin{document}
+\onecolumngrid
+\pagenumbering{arabic}
+\title{\doctitle}
+\author{\firstauthorname}
+\email{\firstauthoremail}
+\thanks{\firstauthorstdnum}
+
+
+%\email{report.author@mail.utoronto.ca}
+%\thanks{Student Number: 0000000000}
+\affiliation{
+University of Toronto \\
+\location, 60 St. George Street, Toronto, Ontario M5S 1A7, Canada.% Force line breaks with \\ if necessary
+}
+
+\date{\today} %Put in date of submission [!!!]
+
+\preprint{APS/123-QED}
+\begin{abstract}
+    Multiple experiments were conducted to verify the focal lengths in various lenses.
+\end{abstract}
+    \maketitle
+    %\tableofcontents 
+
+    \lhead{\firstauthorname\vspace{0.1cm}}
+    \chead{\textbf{\course} \\ \doctitle}
+    \rhead{\textbf{Prof:} \advname \\ \textbf{TA:} \taname}
+    \nocite{*}
+
+    %\newpage
+    \twocolumngrid
+    \section{Introduction}
+        % Plan
+        % 1. Relavent Theory
+        % 2. Simulation
+        % 3. Talk about Hydrogen and Helium Emission Spectra, compare against lens data
+        % 4. Talk about relavent theory for that
+        % 5. Talk about the setup
+        % Data Analysis and Relavent Results, make sure about unceratinties this time
+
+
+        Optics and lesnes are a cornerstone of modern physics with their applications ranging from the study of the cosmos to the development of modern technology. However, the fundementals of such optical systems are often overlooked. In this experiment, the thin lens equation was quantiatively verified using a variety of lenses. The experiment was conducted in two parts. The first focused on verifying the thin lens equation, the second investigating if this still holds for thick lenses. Moreover, additional experimentation was conducted to investigate the diffraction patterns of light passing through a lens.
+
+        \subsection{The Thin Lens Equation}
+
+            The discovery of the thin lens equaton is of some debate. While the theory of lenses was well understood by the time of the ancient Greeks, some historians name Barrow (1669) and Huygens (1653) \cite{historyoptics} as accounting for some of the first semi-verbal descriptions of the thin lens equation. Such debate over \eqref{eqn:thinlens} is not suprising given its importance.
+
+            \begin{equation} \label{eqn:thinlens}
+                \frac{1}{f} = \frac{1}{p} + \frac{1}{q}
+            \end{equation}
+
+            \eqref{eqn:thinlens} describes the fundemental relationship between the focal length of a lens, the object distance, and the image distance. One may also derive the relationship with magnetization \eqref{eqn:mag}.
+
+            \begin{equation} \label{eqn:mag}
+                M = -\frac{q}{p}
+            \end{equation}
+
+            However, there is a fundemental assumption in both \eqref{eqn:thinlens} and \eqref{eqn:mag} which is that the lens is thin. In effect, this means that we approximate the lens as a 2D plane instead of a 3D object. In reality, a lens more acts as two seperate planes, a front plane and a back plane as can be seen in \figref{fig:real-lens}.
+
+            \begin{figure}[H]
+                \input{figures/knife-edge.tex}
+                \caption{Illustration of primary planes in a 3-dimension lens as inspired from the laboratory manual \cite{labmanual}.}
+                \label{fig:real-lens}
+            \end{figure}
+
+        \subsection{The Thick Lens Equation}
+
+
+
+        \subsection{Chromatic Abberations}
+
+
+
+    \section{Methodology}
+
+        The experiment was conducted using a 1.5 m optical bench equipped with a light source, diaphragms, lenses, and a screen. The apparatus was arranged in a classical object-lens-image configuration to investigate the thin lens equation. Three types of lenses—thin biconvex, spherical, and hemispherical—were studied.
+
+        Proper alignment of the optical components was critical to ensure accurate measurements:
+
+        \begin{enumerate}
+            \item The lamp was positioned behind a diaphragm with a small aperture to produce a collimated beam.
+            \item A screen was placed at a short distance from the diaphragm to check for alignment by marking the central light spot.
+            \item The lens was positioned approximately 7 cm from the diaphragm, and its angle was adjusted to retro-reflect light back through the aperture.
+            \item The screen was moved about 1 m away to observe the far-field focus, ensuring the beam remained centered.
+            \item Fine adjustments were made iteratively to confirm proper alignment.
+        \end{enumerate}
+
+
+        The distances between optical elements were recorded using the built-in ruler of the optical bench. To account for systematic errors, offsets between the mount edges and the optical centers of the elements were measured using calipers with a precision of 0.1 mm. Uncertainties in these measurements were estimated by taking multiple readings and calculating the standard deviation.
+
+
+        \subsection{Focal Length Estimation}
+        The focal length of each lens was estimated through two methods:
+        \begin{enumerate}
+            \item Measuring the image distance when the lens was far from the light source.
+            \item Using the lensmaker’s equation:
+            \begin{equation}
+                f = \frac{R}{2(n-1)}
+            \end{equation}
+            where $R$ is the radius of curvature and $n$ is the refractive index of the lens material.
+        \end{enumerate}
+
+
+
+
+\subsection{Data Collection}
+A transparent grid was used as the object, and a screen was placed at varying distances to obtain a sharp focus. The following measurements were recorded:
+\begin{itemize}
+    \item Source, lens, and image positions along the optical bench.
+    \item Image magnification by measuring the grid line spacing in the image.
+    \item Multiple readings (3–5) for each configuration to determine uncertainty.
+\end{itemize}
+Data was collected for a range of object and image distances covering extreme cases ($q = f$ and $p = f$).
+
+\subsection{Data Analysis and Iterative Improvements}
+After an initial set of measurements, the data was plotted and analyzed to check consistency with the thin lens equation:
+\begin{equation}
+    \frac{1}{f} = \frac{1}{p} + \frac{1}{q}
+\end{equation}
+
+If inconsistencies were found, additional measurements were taken to refine the dataset. The analysis was conducted using MATLAB scripts (datacrunch.m and fitter.m), which performed least-squares fitting to determine the best estimates for lens parameters. The goodness-of-fit was evaluated using the chi-squared test.
+
+\subsection{Thick Lens Measurements}
+For thicker lenses, additional measurements were taken to determine whether the thin lens approximation remained valid. The locations of the front and back principal planes were estimated, and deviations from the ideal thin lens behavior were analyzed.
+
+
+        \begin{figure}[H]
+            \input{figures/expsetup-he.tex}
+            \caption{Figure}
+        \end{figure}
+
+
+        \begin{figure}[H]
+            \input{figures/expsetup-lens.tex}
+            \caption{Figure}
+        \end{figure}
+
+
+
+    \section{Results \& Analysis}
+        
+    
+    \section{Discussion}
+    
+    
+    \section{Conclusion}
+
+
+
+    % Line to seperate report content from acknowledgements and references
+\onecolumngrid
+\begin{center}
+    \vspace{0.8cm}
+    \noindent\rule{0.9\textwidth}{0.5pt}
+\end{center}
+
+\begin{acknowledgments}
+    The author would like to thank their supervisor, Prof. B. Braverman [11], for his guidance and support throughout the course of this experiment. Without his inisght much of the improvements as well as the suggenstion to measure free convection as opposed to the suggested setup would never have been possible. Additinonally, many thanks to Arya Kimiaghalam [12] (demonstrator) for developing ideas and providing futher suggestions as well as external processors to reach out to. The author would like to further acknowledge the support of the lab technician team L. Avramidis and P. Scolieri. Finally, the support of author experimentors in MP247 should be acknowledged as they provided valuable feedback and suggestions for the experiment.
+\end{acknowledgments}
+
+\bibliography{references}
+
+\appendix
+\section{Appendix}
+\subsection{Raw Data}
+
+\subsection{Analysis Code}
+
+\end{document}

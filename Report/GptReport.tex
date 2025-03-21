@@ -1,0 +1,289 @@
+\documentclass[aip, cp, amsmath, amssymb, reprint, nofootinbib]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{bm}
+
+\input{preamble/preamble}
+\input{preamble/tikz}
+\input{preamble/macros}
+
+
+% ========================================= %
+% LaTeX Template by Aditya K. Rao
+% Contact at adi.rao@mail.utoronto.ca
+
+% Change for each document [!!!]
+\newcommand\course{PHY426}	% Course Code [!!!]
+\newcommand\doctitle{Investigation of Thin Lens Equation and Chromatic Dispersion} % Report Title [!!!]
+\newcommand\firstauthorname{Report Author} % Author Name [!!!]
+\newcommand\firstauthorstdnum{Student Number: 0000000000} % Student Number [!!!]
+\newcommand\firstauthoremail{report.author@mail.utoronto.ca} % Email [!!!]
+%\newcommand\secondauthorname{Author Two}
+%\newcommand\secondauthorstdnum{Student Number: 0000000000}
+%\newcommand\secondauthoremail{report.author@mail.utoronto.ca}
+\newcommand\advname{Tahir Shaaran\space} % Advisor Name [!!!]  
+\newcommand\taname{Sean Crawford\space} % Advisor Name [!!!] 
+
+\newcommand{\location}{MP222} % Location [!!!]
+% ========================================= %
+ 
+% ============== EQUIPMENT ================ %
+
+\newcommand{\oscope}{\texttt{DSOX1202G}\space}
+\newcommand{\pdiode}{\texttt{DET36A2}\space}
+\newcommand{\hene}{\texttt{HNLS008L}\space}
+\newcommand{\cam}{\texttt{Alium 1800 U-500}\space}
+
+% ========================================= %
+
+
+
+%\pagenumbering{gobble}
+\usepackage{listings}
+
+\renewcommand\lstlistingname{Code Reference}
+\renewcommand\lstlistlistingname{Code Reference}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\usepackage{circuitikz}
+
+%\addbibresource{references.bib}
+\usepackage{lipsum}
+\usetikzlibrary{calc}
+
+\begin{document}
+\onecolumngrid
+\pagenumbering{arabic}
+\title{\doctitle}
+\author{\firstauthorname}
+\email{\firstauthoremail}
+\thanks{\firstauthorstdnum}
+
+
+%\email{report.author@mail.utoronto.ca}
+%\thanks{Student Number: 0000000000}
+\affiliation{
+University of Toronto \\
+\location, 60 St. George Street, Toronto, Ontario M5S 1A7, Canada.% Force line breaks with \\ if necessary
+}
+
+\date{\today} %Put in date of submission [!!!]
+
+\preprint{APS/123-QED}
+\begin{abstract}
+    Multiple experiments were conducted to verify the thin lens equation for a variety of different lens types. The focal length of each lens was estimated through two methods. The first being a rudimentary estimation by point source far away and adjusting the lens until a focal point was found. The other by fitting and analyzing the thin lens equation and subsequent modifications. The experiment also characterized the chromatic aberrations in a plano-convex lens under different wavelengths of light. The results of the thin lens experiment were consistent with the theoretical predictions, and the thin lens equation was found to be a good approximation for most of the lenses studied.
+\end{abstract}
+    \maketitle
+    %\tableofcontents 
+
+    \lhead{\firstauthorname\vspace{0.1cm}}
+    \chead{\textbf{\course} \\ \doctitle}
+    \rhead{\textbf{Prof:} \advname \\ \textbf{TA:} \taname}
+    \nocite{*}
+
+    %\newpage
+    \twocolumngrid
+    \section{Introduction}
+        % Plan
+        % 1. Relavent Theory
+        % 2. Simulation
+        % 3. Talk about Hydrogen and Helium Emission Spectra, compare against lens data
+        % 4. Talk about relavent theory for that
+        % 5. Talk about the setup
+        % Data Analysis and Relavent Results, make sure about unceratinties this time
+
+        Optics and lenses are fundamental to modern physics, with applications spanning from astronomical observations to cutting-edge technological advancements. Despite their significance, the foundational principles governing optical systems are often taken for granted. This experiment aims to rigorously test the thin lens equation through precise measurements using a variety of lenses.
+        
+        The experiment is divided into two main parts. The first focuses on verifying the thin lens equation and seeing if it may translate to thick lenses. The second extends this investigation into chromatic abberations in plano-convex lenses under different wavelengths of light.
+
+        \subsection{The Thin \& Thick Lens Equations}
+        
+        The origins of the thin lens equation have been debated among historians. While the principles of lenses date back to ancient Greece, early mathematical formulations are often attributed to Isaac Barrow (1669) and Christiaan Huygens (1653) \cite{historyoptics}, who provided some of the first semi-verbal descriptions of the equation. Given its fundamental role in optics, such historical discussions are unsurprising.
+        
+        \begin{equation} \label{eqn:thinlens}
+            \frac{1}{f} = \frac{1}{p} + \frac{1}{q}
+        \end{equation}
+        
+        Equation \eqref{eqn:thinlens} defines the fundamental relationship between the focal length of a lens ($f$), the object distance ($p$), and the image distance ($q$). A related equation describes the magnification ($M$) of an image:
+        
+        \begin{equation} \label{eqn:mag}
+            M = -\frac{q}{p}
+        \end{equation}
+        
+        Both equations, however, rest on a key assumption: that the lens is thin. This assumption simplifies the system by treating the lens as a single two-dimensional plane rather than a three-dimensional object. In reality, a lens is better represented as having two distinct planes—a front principal plane and a back principal plane—as illustrated in \figref{fig:real-lens}.
+        
+        \begin{figure}[H]
+            %\input{figures/knife-edge.tex}
+            \includegraphics[width=0.8\linewidth]{figures/fp-bp.png}
+            \caption{Illustration of principal planes in a real (thick) lens, adapted from the laboratory manual \cite{labmanual}.}
+            \label{fig:real-lens}
+        \end{figure}
+        
+        As can be seen in \figref{fig:real-lens}, there is indeed some ofset between the front and back principal planes. This offset is crucial in determining the focal length of a thick lens where this difference is exacerbated. Therefore, one may us \eqref{eqm:thicklens} to obtain a better approximation of the focal length of a thick lens.
+
+        \begin{equation} \label{eqm:thicklens}
+            \frac{1}{f} = \frac{1}{|o-l|-p_f} + \frac{1}{|i-l|-p_b}
+        \end{equation}
+        
+        Where $p_f$ and $p_b$ are the distances from the front and back principal planes to the object and image respectively. $p = |o-l|$ and $q = |i-l|$ are the distances from the object and image to the lens respectively. Then,  thin lens equation is just a special case of \eqref{eqm:thicklens} with $p_f = p_b = 0$.
+
+        \subsection{Chromatic Aberrations}
+        
+        Lenses in practical applications rarely behave as ideal thin lenses due to inherent optical imperfections. These deviations, known as aberrations, can significantly affect image quality. In general, there are five primary Seidel aberrations including \textit{spherical aberration}, \textit{coma}, \textit{astigmatism}, \textit{field curvature}, and \textit{distortion}. These aberrations can be further classified into two categories: geometric and chromatic. Additional study was specifically conducted \textit{chromatic aberrations}, or coma, which occur as a result of light dispersion within the optical matieral of the lens. The dispersion relation for a dielectric material is given in \eqref{eqn:dispersion}.
+
+        \begin{equation} \label{eqn:dispersion}
+            n^2(\omega) = 1 + \frac{N^2}{\varepsilon_0 m _e}\frac{1}{\omega_0^2 - \omega^2}
+        \end{equation}
+
+        Which may further be reduced \cite{labmanual} to \eqref{eqn:dispersion2} to solve for $\omega$.
+
+        \begin{equation} \label{eqn:dispersion2}
+            \frac{1}{n^2 - 1} = \frac{C}{\lambda_c^2} - \frac{C}{\lambda^2} 
+        \end{equation}
+
+        Where $C$ and $\lambda_c$ are constants for the material and $\lambda$ is the wavelength of the light, and $n$ is the refractive index. For air, this may be calculated using the len's maker equation \eqref{eqn:lensmaker}.
+
+        \begin{equation} \label{eqn:lensmaker}
+            \frac{1}{f} = (n-1)\left[\frac{1}{R_1} - \frac{1}{R_2} + \frac{(n-1)d}{n R_1 R_2}\right]
+        \end{equation}
+
+        WHere $R_1$ and $R_2$ are the radii of curvature of the lens and $d$ is the thickness of the lens. 
+
+        Specifically, for this section of the experiment, the change in the focal length of a plano-convex lens was measured under different wavelengths of light (i.e. different colors). These results were compared to a known wavelength as calculatd by a triprism spectroscope with calibration equation given in \eqref{eqn:triprism}.
+
+        \begin{equation} \label{eqn:triprism}
+            y = \frac{m}{\lambda-\lambda_0} + b
+        \end{equation}
+
+        Where $\lambda_0$ is predeterimned for each spectroscope.
+
+
+    \section{Methodology}
+
+        The experiment was conducted using a $1.500\pm0.005\,\text{m}$ optical bench equipped with a light source, diaphragms, lenses, and a screen. The apparatus was arranged as in \figref{fig:expsetup}. The distances between optical elements were recorded using the built-in ruler of the optical bench. To account for systematic errors, offsets between the mount edges and the optical centers of the elements were measured using calipers with a precision of $\pm0.1\,\text{mm}$. Uncertainties in these measurements were estimated by taking the statistical uncertainty of multiple readings.
+
+        \begin{figure}[H]
+            \centering
+            %\input{figures/expsetup.tex}
+            \includegraphics[width=0.8\linewidth]{figures/optical-bench.png}
+            \caption{Experimental setup for measuring the focal length of a lens.}
+            \label{fig:expsetup}
+        \end{figure}
+
+        Proper alignment of the optical components was critical. Three primary components were used:, a light source\footnote{Exact model number and manufacturer to be recorded.}, a variable diaphram apperature, a lens mounted on vertical and horizontal translation stage, and a screen.
+
+        % Alignment Procedures  
+        Initial estimates of the focal length of each lens were obtained using a far field method. The lens was placed at a distance from the light source such that the image formed was at the far field. The distance between the lens and the screen was then measured to obtain the focal length. This method was repeated for each lens to ensure consistency.
+
+        % \begin{enumerate}
+        %     \item The lamp was positioned behind a diaphragm with a small aperture to produce a collimated beam.
+        %     \item A screen was placed at a short distance from the diaphragm to check for alignment by marking the central light spot.
+        %     \item The lens was positioned approximately 7 cm from the diaphragm, and its angle was adjusted to retro-reflect light back through the aperture.
+        %     \item The screen was moved about 1 m away to observe the far-field focus, ensuring the beam remained centered.
+        %     \item Fine adjustments were made iteratively to confirm proper alignment.
+        % \end{enumerate}
+
+        An additional grid was placed before the lens to measure geometric magnification and any distortions introduced by the lens. Given there was some distortion despite multiple realignment attempts, a $3\times3$ unit block of values was recorded as well as multiple readings for each configuration.
+
+        % \subsection{Focal Length Estimation}
+        % The focal length of each lens was estimated through two methods:
+        % \begin{enumerate}
+        %     \item Measuring the image distance when the lens was far from the light source.
+        %     \item Using the lensmaker's equation:
+        %     \begin{equation}
+        %         f = \frac{R}{2(n-1)}
+        %     \end{equation}
+        %     where $R$ is the radius of curvature and $n$ is the refractive index of the lens material.
+        % \end{enumerate}
+
+        For data collection post alignment, the position of the source was fixed for all measurements. The lens was then placed at $5$ different locations on the optical bench. At each location, $3$ measurements were taken by moving the screen to obtain a sharp image of the grid, this image distance was then recorded. This procedure was repeated for a variety of lenses, namely a plano-convex lens, a biconvex lens, a concave-convex lens, and a spherical lens. 
+        
+        The magnification was calculated by measuring the grid line spacing in the image. The process was repeated for a range of object and image distances. Data was verified by checking consistency with \eqref{eqn:thinlens}.
+
+        For thicker lenses, additional measurements were taken to determine whether the thin lens approximation remained valid. The locations of the front and back principal planes were estimated, and deviations from the ideal thin lens behavior were analyzed.
+
+
+
+    \section{Results \& Analysis}
+        \subsection{Thin Lens Investigation}
+            \textcolor{red}{\textbf{[Include new graphs and analysis for thin lens investigation.]}}
+
+            \begin{figure}[H]
+                \centering
+                %\input{figures/thin-lens.tex}
+                \includegraphics[width=0.9\linewidth]{figures/ideallens.png}
+                \caption{Focal length of a plano-convex lens as a function of object distance.}
+                \label{fig:thin-lens}
+            \end{figure}
+
+            % \begin{figure}[H]
+            %     \centering
+            %     %\input{figures/thick-lens.tex}
+            %     \includegraphics[width=0.9\linewidth]{figures/thicklens.png}
+            %     \caption{Focal length of a thick lens as a function of object distance.}
+            %     \label{fig:thick-lens}
+            % \end{figure}
+
+
+        \subsection{Thick Lens Investigation}
+            \textcolor{red}{\textbf{[Include new graphs and analysis for thin lens investigation.]}}        
+
+        \subsection{Chromatic Aberrations}
+
+            Data points taken for triprism calibration are shown in \figref{fig:chromatic-He} and \figref{fig:chromatic-H}. These were both fit to \eqref{eqn:triprism} to obtain the calibration constants. The spectroscope constant was provided $\lambda_0 = 284.6 \pm 0.4\,\text{nm}$.
+
+            \begin{figure}[H]
+                \centering
+                %\input{figures/chromatic.tex}
+                \includegraphics[width=0.9\linewidth]{figures/spec-he.png}
+                \caption{Calibration curve for the triprism spectroscope using a $\text{He}$ sample. Fit parameters $m = 1000\pm700$, $\b=-9\pm 1$, $\chi^2_{\text{red}} = 1248$. Residuals show some pattern indicating an under estimation of uncertainties.}
+                \label{fig:chromatic-He}
+            \end{figure}
+
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.9\linewidth]{figures/spec-he.png}
+                \caption{Calibration curve for the triprism spectroscope.}
+                \label{fig:chromatic-H}
+                \caption{Calibration curve for the triprism spectroscope using a $\text{H}$ sample. Fit parameters $m = 500\pm100$, $\b=-0.3\pm 2$, $\chi^2_{\text{red}} = 230$. Residuals show some pattern indicating an under estimation of uncertainties.}
+                \label{fig:chromatic-H}
+            \end{figure}
+
+            Clearly, both fits show some pattern in the residuals indicating that the uncertainties were underestimated. However, qualitatively, this fits do indeed look decent. However, it should be noted that some odd observations were observed during data collection. Namely, multiple additional spectral lines were visable in both the $\text{He}$ and $\text{H}$ samples\footnote{This phenomena was also observed by the technical staff}. However, this did not significantly affect the results of the experiment. 
+
+            \textcolor{red}{\textbf{[Include application for green and red absorbing filters.]}}
+
+    
+    \section{Conclusion}
+        This study effectively quantitatively verified the thin lens equation for most of the lenses studied. The experimental setup consisted of an optical rail/bench with a lamp, adjustable iris apperature, lens holder on vertical (and horizontal) translation stage, and a screen. Uncertainties were estimated using both statistical and systematic methods. with the later being from the gradations on measurement tools and the former being from the standard deviation of multiple readings.
+        
+        Additional measurements were taken to characterize the chromatic aberrations in a plano-convex lens. The focal length of the lens was measured under different wavelengths of light, and the results were compared to a known wavelength. \textcolor{red}{[Include results of chromatic aberrations]}.
+
+
+        It was found that, for the most part, the thin lens equation held true for the lenses studied. However, for the thicker lenses, the thin lens approximation was not as accurate. This was expected as the thin lens equation is a simplification of the more general thick lens equation. The focal length of the lenses was measured using a variety of methods, including the far field method and the lensmaker's equation. The magnification was also calculated by measuring the grid line spacing in the image. \textcolor{red}{[Include numerical results from new analysis]}.
+
+
+    % Line to seperate report content from acknowledgements and references
+\onecolumngrid
+\begin{center}
+    \vspace{0.8cm}
+    \noindent\rule{0.9\textwidth}{0.5pt}
+\end{center}
+
+\begin{acknowledgments}
+    The author would like to thank Prof. \advname (Supervising Professor) and \taname (Teaching Assistant) for their guidence and support throughout the experiment. Moreover, the author would like to further acknowledge the support of the lab technician team L. Avramidis and P. Scolieri for their assistance in debugging issues that arose with the triprism spectroscope. Finally, the support of author experimentors in MP250 should be acknowledged as they provided valuable feedback and suggestions during the experiment.
+\end{acknowledgments}
+
+\bibliography{references}
+
+% \appendix
+% \section{Appendix}
+
+% \subsection{Raw Data}
+
+% \subsection{Code}
+
+\end{document}

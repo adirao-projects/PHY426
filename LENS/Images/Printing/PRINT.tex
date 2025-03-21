@@ -1,0 +1,176 @@
+\documentclass[reprint, amsmath,amssymb, amsthm, aip, cp]{revtex4-2}
+
+% LaTeX Template by Aditya Rao
+%=================== HEADER =====================%
+\usepackage[left=0.7in, right=0.7in, top=0.7in, bottom=0.7in]{geometry}
+\pagenumbering{gobble}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+
+% Other Preamble
+\usepackage[leftmargin=1cm, rightmargin=1cm]{mdframed}
+\usepackage[colorlinks, allcolors=black]{hyperref}
+
+
+% Code Formatting
+\usepackage{listings}
+% Figures & Drawings
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{caption}
+
+% Physics & Mathematics
+\usepackage{physics}
+\usepackage{mathtools}
+%================================================%
+
+%=================== SETUP ======================%
+% Page styling
+\pagestyle{fancy}
+\pagenumbering{gobble}
+
+% Listings Setup
+\lstset{
+	basicstyle=\footnotesize,
+	numbers=left,
+	stepnumber=1,
+	showstringspaces=false,
+	tabsize=1,
+	breaklines=true,
+	breakatwhitespace=false
+}
+
+% Date Formatting
+\def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+\pagenumbering{gobble}
+%================================================%
+
+%=================== MACROS =====================%
+% The main stuff
+\let\origthefigure\thefigure
+
+\newcommand{\thedate}{00.00}
+\newcommand{\figbig}{0.9\linewidth}
+\newcommand{\figsml}{0.7\linewidth}
+\newcommand{\newdate}[1]{\newpage\renewcommand{\thedate}{#1}\section*{Date: \thedate}}
+\newcommand{\updatefig}[1]{\renewcommand{\thefigure}{\textbf{\thedate #1.\origthefigure}}\setcounter{figure}{0}}
+
+\newcommand{\mdfigure}[2]{
+	\begin{mdframed}
+	\begin{figure}[H]
+		\centering
+		\captionsetup{width=\figsml}
+		\includegraphics[max height=0.4\textheight]{#1}
+		\caption{#2}
+	\end{figure}
+	\end{mdframed}
+}
+
+% I like the Griffiths' script r
+%Script r (vector)
+\newcommand{\brc}{\resizebox{!}{1.3ex}{
+    \begin{tikzpicture}[>=round cap]
+        \clip (0.085em,-0.1ex) rectangle (0.61em,0.875ex);
+        \draw [line width=.2ex, <->, rounded corners=0.13ex] (0.1em,0.1ex) .. controls (0.24em,0.4ex) .. (0.35em,0.8ex) .. controls (0.29em,0.725ex) .. (0.25em,0.6ex) .. controls (0.7em,0.8ex) and (0.08em,-0.4ex) .. (0.55em,0.25ex);
+    \end{tikzpicture}
+}}
+
+%Script r with a hat (unit vector)
+\newcommand{\hrc}{\hat{\brc}}
+
+% References and Sourcing
+\newcommand{\figref}[1]{Fig. \ref{#1}}
+\newcommand{\source}[1]{\caption*{Source: {#1}} }
+%================================================%
+
+%==================== INFO ======================%
+\newcommand{\name}{Aditya K. Rao}
+\newcommand{\expname}{LENS}
+%================================================%
+
+\begin{document}
+\nocite{*}
+\lhead{\name\vspace{0.1cm}}
+\chead{\textbf{Advanced Physics Laboratory} \\ \expname\vspace{0.1cm}}
+\rhead{\textbf{LAST UPDATED:} \mydate\vspace{0.1cm}}
+
+\newdate{01.07}\updatefig{A}
+\updatefig{A}
+
+\mdfigure{../01.24.54(1).jpeg}{Experimental setup, adjusting alignment and diameter of apperature.}
+
+\updatefig{B}
+\mdfigure{../01.24.54(2).jpeg}{Prealignment.}
+
+\updatefig{C}
+\mdfigure{../01.24.53.jpeg}{Alignment Complete}
+
+
+\newdate{01.11}
+\updatefig{A}
+
+\mdfigure{../01.24.54(3).jpeg}{Distortion in lens.}
+
+\newdate{01.26}
+\updatefig{A}
+
+\mdfigure{../initial.png}{Initial plot of raw data without any styling or processing.}
+
+\mdfigure{../initial2.png}{Plot of data without averaging and fitting to thin-lens equation. The following parameters were found $f=-8.78472364,\,fp=29.65207305,\,bp=13.96601846$}
+
+\updatefig{B}
+\mdfigure{../prelim_mag.png}{Initial plot of raw data (magnitization) without any styling or processing.}
+
+\newdate{02.04}
+\updatefig{A}
+\mdfigure{../01.24.54(4).jpeg}{Spectroscope Information}
+
+\mdfigure{../01.24.54(5).jpeg}{Spectroscope with polarizer Information}
+
+\newdate{02.05}
+\updatefig{A}
+
+\mdfigure{../triprism_spec.png}{Spectroscope Diagram taken from \cite{manual}.}
+
+%\mdfigure{../reference_lengths.png}{How to use reference lengths as shown in the laboratory manual \cite{manual}.}
+
+\newdate{MISC.}
+\updatefig{A}
+
+\mdfigure{../02.19.08.jpeg}{}
+\mdfigure{../02.19.07(1).jpeg}{}
+\mdfigure{../02.19.06(1).jpeg}{}
+\mdfigure{../02.19.06.jpeg}{}
+\mdfigure{../02.19.05.jpeg}{}
+
+\newpage
+\updatefig{B}
+
+\mdfigure{../31.png}{}
+\mdfigure{../31_mag.png}{}
+
+\updatefig{C}
+\mdfigure{../21.png}{}
+\mdfigure{../21_mag.png}{}
+
+\updatefig{D}
+\mdfigure{../1.png}{}
+\mdfigure{../1mag.png}{}
+
+\newdate{02.07}
+\updatefig{A}
+
+\mdfigure{../spectrascope-H.png}{}
+\updatefig{B}
+\mdfigure{../spectrascope-he.png}{}
+
+\newpage
+\appendix
+\bibliography{references.bib}
+\end{document}

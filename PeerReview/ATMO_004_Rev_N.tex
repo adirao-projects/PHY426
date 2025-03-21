@@ -1,0 +1,180 @@
+\documentclass[%
+ aip,
+% jmp,
+% bmf,
+% sd,
+% rsi,
+cp,  % Conference Proceedings
+ amsmath,amssymb,
+% preprint,%
+ reprint,%
+%author-year,%
+%author-numerical,%
+nofootinbib
+]{revtex4-2}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%% Loads a Times-like font. You can also load
+%% {newtxtext,newtxtmath}, but not {times}, 
+%% {txfonts} nor {mathtpm} as these packages
+%% are obsolete and have been known to cause problems.
+\usepackage{mathptmx} 
+
+\usepackage{amsthm}
+\usepackage{subcaption}
+
+
+\usepackage{fancyhdr}
+
+% ========================================= %
+% Change for each document [!!!]
+\newcommand\course{Peer Review}	% Course Code [!!!]
+\newcommand\doctitle{Peer Review ATMO} % Report Title [!!!]
+\newcommand\firstauthorname{Aditya K. Rao}
+%\newcommand\firstauthorname{\textbf{Name:}}
+\newcommand\taname{D.F.V. James} % TA Name [!!!]
+\newcommand{\location}{\texttt{April 25, 2024}} % Location [!!!]
+% ========================================= %
+ 
+%\pagenumbering{gobble}
+\usepackage{listings}
+
+\renewcommand\lstlistingname{Code Reference}
+\renewcommand\lstlistlistingname{Code Reference}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\setlength{\belowdisplayskip}{0pt} \setlength{\belowdisplayshortskip}{0pt}
+\setlength{\abovedisplayskip}{0pt} \setlength{\abovedisplayshortskip}{0pt}
+\usepackage{mdframed}
+\begin{document}
+\lhead{\firstauthorname\vspace{0.1cm}}
+\chead{\textbf{\course} \\ \doctitle}
+\rhead{\textbf{Date:} \location}
+\title{Peer Review: ATMO\ 004}
+%\author{\firstauthorname}
+\date{\today}
+\maketitle
+\section{Summary}
+    Overall, the author has submitted a extremely well written and well structured report. The background theory is approachable and provides good context regarding the theory behind the experiment as well as the real world implications of the results. However, there are a few areas which should be addressed. This primarily includes restructuring the abstract and the methodology section which could be improved by providing more detail on how the data was processed. Additionally, the presentation of data could be improved by tabulating results.
+
+    \begin{center}
+        \noindent\rule{0.9\textwidth}{0.5pt}
+    \end{center}
+
+
+\section{Major Strengths}
+% \begin{itemize}
+%     \item Background has good points about fundamental theory of superconductivity
+%     \item Overall, the conclusion is quite good as a summary of the experiment.
+%     \item Experiment overall extremely well conducted. The data is quite clear and the results are generally well presented.
+%     \item Report is well structured and is easy to follow. It is overall very well written bar some specific issues elaborated on later.
+% \end{itemize}
+
+
+\begin{mdframed}
+    %\subsection{Identification}
+    \textbf{Identification:}
+    Results section (which also includes analysis and discussion) is extensive and provides extremely good commentary on the results. Any data related is always cited in text providing supporting evidence for the claims made.
+    %\\\\
+    \begin{center}
+        \noindent\rule{0.9\textwidth}{0.5pt}
+    \end{center}
+    %\subsection{Evidence \& Justification}
+    \textbf{Evidence \& Justification:}
+    The author consistently comments on the real world implications of their results. This keeps the reader engaged and helps to contextualize the results and their importance to a typical PHY42* reader. The author also consistently provides evidence for their claims (either through their own data analysis or consistent citation of other works). This is a key component of a scientific paper and is well executed in this draft.
+\end{mdframed}
+
+\section{Major Weaknesses}
+\begin{mdframed}
+    %\subsection{Identification}
+    \textbf{Identification:}
+    The abstract is generally well written, but it  lacks some key components. 
+    %\\\\
+    \begin{center}
+        \noindent\rule{0.9\textwidth}{0.5pt}
+    \end{center}
+    %\subsection{Evidence \& Justification}
+    \textbf{Evidence \& Justification:}
+    The author may improve their abstract by changing the structure to focus on the key results and the implications of the experiment rather than the background behind the experiment. In the draft, no conclusions are presented (numerical or otherwise). This is a key proponent of an abstract and should be included.
+\end{mdframed}
+
+\begin{mdframed}
+    %\subsection{Identification}
+    \textbf{Identification:}
+    Presentation of data is somwehat unclear. Consider tabulating results and/or fit parameters. Additionally, include these fit parameters (and any goodness-of-fit analysis) in the caption of figures (if applicable).
+    %\\\\
+    \begin{center}
+        \noindent\rule{0.9\textwidth}{0.5pt}
+    \end{center}
+    %\subsection{Evidence \& Justification}
+    \textbf{Evidence \& Justification:}
+    The author should consider adding a table to present the data in a more clear and concise manner. Currently, fit parameters are presented in numbered equations (12) through (17). Additionally, the author should consider including a goodness-of-fit analysis is not included for this data (nor are any residuals, though this may not be applicable).
+\end{mdframed}
+
+
+\begin{mdframed}
+    %\subsection{Identification}
+    \textbf{Identification:}
+    Methodology section would benifit from additional detail.
+    %\\\\
+    \begin{center}
+        \noindent\rule{0.9\textwidth}{0.5pt}
+    \end{center}
+    %\subsection{Evidence \& Justification}
+    \textbf{Evidence \& Justification:}
+    Currently, the methodology section provides good background on how the data was collected (from external sources). However, the author does not go into detail on how the data was processed. Currently, the author only mentions that the data was processed using \textit{``... using Python and the necessary libraries''}. The author should go into how the data was processed. For example, how the trends were fit, how the sub-annual cycles were analyzed, how uncertainties were calculated, etc.
+\end{mdframed}
+
+\newpage
+\section{Minor Strengths}
+\begin{itemize}
+    \item Uncertainties and units present with relevant results.
+    \item Bibliography is complete and extensive. Formatting in the bibliography seems to be consistent.
+    \item Figures are generally well presented easy to understand bar a few examples listed in the next section.
+    \item Background is quite extensive and is written very well providing an easy introduction for a PHY42* student. This makes the report quite approachable and enjoyable to read.
+    \item Report, overall, has good formatting. Figures are well placed and are not too small. Text does not seem cluttered.
+\end{itemize}
+
+\section{Minor Weaknesses}
+\begin{itemize}
+    \item The title of the report while somewhat intriguing, should be more precise. Consider changing the title to something more descriptive of the experiment and relevant results.
+    \item Some citations included in areas where they are not needed.
+    \begin{itemize}
+        \item Citations in abstract (e.g. \textit{... XIXth century}).
+        \item Citations in headings (e.g. \textit{Mauna Loa and South Pole Observations}).
+    \end{itemize}
+    \item Minor formatting critiques.
+    \begin{itemize}
+        \item Figure 5 and Figure 6 may be aligned side by side to save space.
+        \item Equations somewhat difficult to read, some equations are numbered on the right and some on the left.
+        \item Equation (9) not numbered.
+    \end{itemize}
+    
+    \item General capitalization, punctuation, and typesetting needs to be improved in certain areas.
+    \begin{itemize}
+        \item Some paragraphs have inconsistent spacing.
+        \item Overall there are general formatting inconsistencies which may be improved by using a \LaTeX.
+    \end{itemize}
+    \item A few sentences don't flow very well. Consider rephrasing or removing the following
+    \begin{itemize}
+        \item Combine the sentence \textit{... are provided by Friedlingstein et al. 2024. The data provided by Friedlingstein et al. 2024 is a cummulation of other sources...} into one sentence. 
+        \item \textit{... cummulation of other sources which are described as such:} could be rephrased to ``cummulation of the following sources.''
+    \end{itemize}
+    \item Potentially include a footnote the definition of what \textit{GtCO2} means (unit in Figure 2). Figure 2 axes generally quite unclear. Which axis corresponds to which lines? It is not immediately obvious.
+    
+    \item Numbered equation in results section (equations (12), (13), (14), (15), (16), and (17) do not need to be numbered).
+    
+    \item Try to incorporate a 'story' into your conclusion. Currently, the conclusion represents more of what should be an abstract while the abstract has good elements to start and end the conclusion section. Consider switching the two around.
+    
+    \item Consider adding an acknowledgements section and/or adding `private communications' to the bibliography. These will help give credit to the supervising professor and supervising teaching assistant.
+\end{itemize}
+
+\end{document}

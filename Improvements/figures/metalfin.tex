@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+    \def\width{6}
+    \def\height{3}
+    \def\fmheight{2.5}
+    \def\thick{0.25}
+    \def\hpthick{0.5}
+
+    \coordinate (LC) at ($(0,0) + (-\width/2, \hpthick/2)$);
+    \coordinate (RC) at ($(0,0) + (\width/2, \hpthick/2)$);
+
+    \coordinate (FINBASE) at ($(0,0) + (0,\hpthick/2)$);
+
+    % Hot Plate
+    \draw[ultra thick, pattern=north west lines] (LC) rectangle ($(RC)-(0,\hpthick)$);
+
+    % Fin Body
+    \draw[thick] ($(FINBASE)-(\thick/2,0)$) rectangle ($(FINBASE)+(\thick/2,\height)$);
+
+    % Foam Left
+    \draw[pattern=dots] ($(LC)+(0.25,0)$) rectangle ($(FINBASE)+(-\thick/2,\fmheight)$);
+
+    % Foam Right
+    \draw[pattern=dots] ($(FINBASE)+(\thick/2,\fmheight)$) rectangle ($(RC)-(0.25,0)$);
+
+    % Labels
+    \draw[ultra thick, dashed] ($(FINBASE)+(0,\height/2)$) -- ($(FINBASE)+(\width/2+0.3,\height/2)$)node [anchor=west] {Fin};
+
+    \draw[ultra thick, dashed] ($(LC)+(\width/4,\fmheight/2 -0.5)$) -- ($(\width/2+0.3,\fmheight/2 + \hpthick/2 -0.5)$)node [anchor=west, text width=1.5cm] {Insulating Foam};
+
+    \draw[ultra thick, dashed] ($(RC)-(\width/4,\hpthick/2)$) -- ($(\width/2+0.3,0)$)node [anchor=west] {Heat Plate};
+\end{tikzpicture}

@@ -1,0 +1,296 @@
+\documentclass[%
+ aip,
+% jmp,
+% bmf,
+% sd,
+% rsi,
+cp,  % Conference Proceedings
+ amsmath,amssymb,
+% preprint,%
+ reprint,%
+%author-year,%
+%author-numerical,%
+]{revtex4-2}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%% Loads a Times-like font. You can also load
+%% {newtxtext,newtxtmath}, but not {times}, 
+%% {txfonts} nor {mathtpm} as these packages
+%% are obsolete and have been known to cause problems.
+\usepackage{mathptmx} 
+
+\usepackage{physics}
+\usepackage{tikz}
+
+\usepackage{amsthm}
+\usepackage{subcaption}
+
+
+
+\usepackage{fancyhdr}
+\usepackage{mdframed}
+
+% ========================================= %
+% Change for each document [!!!]b
+\newcommand\course{PHY424}	% Course Code [!!!]
+\newcommand\doctitle{Letter To Editor} % Report Title [!!!]
+\newcommand\firstauthorname{Aditya K. Rao}
+%\newcommand\firstauthorname{Report Author}
+%\newcommand\secondauthorname{Jillian Henkel 1006804282}
+\newcommand\taname{Prof. B. Braverman} % TA Name [!!!]    volume={1},
+\newcommand{\location}{MP247} % Location [!!!]
+% ========================================= %
+
+\begin{document}
+\onecolumngrid
+\pagenumbering{arabic}
+\title{\doctitle}
+\author{\firstauthorname}
+\email{adi.rao@mail.utoronto.ca}
+\thanks{Student Number: 1008307761}
+%\email{report.author@mail.utoronto.ca}
+%\thanks{Student Number: 0000000000}
+\affiliation{
+University of Toronto \\
+\location, 60 St. George Street, Toronto, Ontario M5S 1A7, Canada.% Force line breaks with \\ if necessary
+}
+\maketitle
+
+\lhead{\firstauthorname\vspace{0.1cm}}
+\chead{\textbf{\course} \\ \doctitle}
+\rhead{\textbf{Date:} \location}
+
+
+\date{\today} %Put in date of submission [!!!]
+
+\preprint{APS/123-QED}
+
+\section{Comments on Review 1}
+    \subsection{Major Weakness Comments}
+        \begin{mdframed} \textbf{Major Comment 1:}
+
+            \textit{Abstract:} The abstract did not mention the final results and conclusions that were made from performing this experiment.
+
+            Include the final results within the abstract. If there were not any conclusive results in the experiment mention that within the abstract with a short explanation of why.
+        \end{mdframed}
+        {\color{red}
+        
+        Final results and conclusions have been updated. Conclusive results were not found. These changes have been reflected within the abstract.Abstract has been updated accordingly.
+
+        }
+        \begin{mdframed} \textbf{Major Comment 2:}
+
+            \textit{Introduction:} There are terms that are assumed the reader would be familiar with and are stated without context which makes it difficult for the reader to follow along.
+
+            Some examples of these terms are \textit{Gladstone-Dale} constant (what does this constant mean/represent), semi-constant system, coma effects (why would you avoid this) and astigmatism (why would you avoid this). Also try to explain why convection patterns occur and the theory behind convection patterns since it was metnioned later in the paper (result: pg 4).
+        \end{mdframed}
+        {\color{red}
+        
+        Introduction substantionally overhauled to include more context (or removal) and explanation of terms. 
+        
+        \begin{itemize}
+            \item Gladstone-Dale constant has been explained in the context of the experiment.
+            \item \textbf{Semi-constant system has been removed.}
+            \item CoReviewerma effects and astigmatism have been explained. However, since they are not critical to the experiment itself, this explanation has been relegated to a footnote.
+            \item Convection is explained, however, mathematical theory has been removed as it is not critical to the experimental results.
+        \end{itemize}
+
+        }
+        \begin{mdframed} \textbf{Major Comment 3:} 
+
+            \textit{Methodology:} The images were very small and hard to understand.
+
+            \begin{enumerate}
+                \item The images of the set are quite small and hard to follow, consider re-drawing the set-up schematics larger, with proper labels for the different parts of the apparatus, or using software to create the diagrams (paint). Ensure that the caption is detailed and descriptive of the schematics, giving more context.
+                \item Try to explain what "Fluke 54 II B" is since the reader may not be familiar with the term. What does it do? Why is it significant? How does it work? Also, try to explain the method/term ``pixel slice'' and how this pixel slice was done for the data analysis.
+            \end{enumerate}
+        \end{mdframed}
+        {\color{red}
+        
+        \begin{enumerate}
+            \item The all hand-drawn images have been redrawn with tikz. Duplicate images removed. Captions of all images have been updated to be self consistent (i.e. one can read the caption and understand the image without having to refer to the text).
+            \item ``The Fluke 54 II B'' has been removed. Instead simply the ``Thermocouple'' is mentioned with the model number relagated to a footnote (and data sheet reference). The pixel slice analysis methodoly has been updated to be more descriptive.
+        \end{enumerate}
+
+        }
+        \begin{mdframed} \textbf{Major Comment 4:}
+
+            \textit{Observation:} Missing components of the analysis and results.
+
+            \begin{enumerate}
+                \item There were no clear mentions of uncertainties and how/why the analysis was preformed. For example, why was a linear fit used on the points (was it because of the equations stated in the Introduction?) in Figure 12? Try to discussed the parameters (what they represent, uncertainties of the parameters etc.) The chi sq and residuals of the fit can be commented on to talk about the quality/accuracy of the fit. Talking about these values will help support the analysis and the choices made during the analysis of the collected data.
+                \item Although there were not clear results, the student can discuss what results were expected referencing external papers and have a discussions of reasons why specific results were not found in this experiment.
+                \item Also, in the beginning of the report it was mentioned multiple times about how modifications were made to the experiment, how did these modifications affect the experimental results?
+            \end{enumerate}
+        \end{mdframed}
+        {\color{red}
+        
+        \begin{itemize}
+            \item Uncertainties have been added to the analysis section. However, given the nature of the experiment, the uncertainties are quite small and insignificant compared to the lack of conclusive experimental results.
+            \item Expected results have been added to the introduction. The discussion of why specific results were not found has been added to the conclusion.
+            \item Relevant modifications made to the experiment have been discussed in the methodology section. The effect of these modifications have also been documented.
+        \end{itemize}
+
+        }
+        \begin{mdframed} \textbf{Major Coment 5:}
+
+            \textit{Overall:} Many of the words are incorrectly spelled. The sentences are quite repetitive and hard to follow along at some sections, it would take multiple times reading over the report to understand what was trying to be conveyed.
+
+            \begin{enumerate}
+                \item Be careful about spelling and grammer: Some examples of misspelled words: ``throuhout'' (pg 2), ``understande'' (pg 2), ``inovate'' (pg 2), “enclsure” (pg 3)
+                \item Found this sentence a bit long and confusing: ``This knife edge when place at the focal point of the second mirror will effectively do a fourier transforom and convert the angle of the shadowfraph into a change...'' (pg 3). Could break it up into smaller sentances for examples, ``The knife edge was placed at the focal point of the second mirror which performed a Fourier Transform. This converts the shadowgraph angle, changing the intensity. The mode deflection occured, the darker the image was''
+            \end{enumerate}
+        \end{mdframed}
+        {\color{red}
+        
+        The report has been proof red for spelling error. Long sentances have been identified and broken up into smaller, more digestible sentances.
+
+        }
+        \section{Minor Weakness Comments}
+        \begin{mdframed} \textbf{Minor Comment 1:}
+
+            The Contents Section seems to stray away from the format of a journal. Personally, I do not feel that it is necessary to include a contents table.
+        \end{mdframed}
+        {\color{red}
+        
+        Table of contents removed.
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 2:}
+
+            Table 1 regarding the initial settings of the software can be included in an appendix.
+        \end{mdframed}
+        {\color{red}
+        
+        Was unsure if an appendix was allowed for this report. After clarification from teaching team, the table has been moved to an appendix.
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 3:}
+
+            For the apparatus, if it is possible, it would be helpful to get the exact model and model numbers that were used (lens),
+        \end{mdframed}
+        {\color{red}
+        
+        Where possible, model numbers have been included as a footnote or explicit datasheet reference. This is in an effort to keep the report concise as well as increase clarity without overloading the reader with terminology.
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 4:}
+
+            Check the references you don't need to put Personal Communication in the reference list. Personal communication references in APA format should be in-text
+        \end{mdframed}
+        {\color{red}
+        
+        
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 5:}
+
+            Image format was hard to follow, when a figure was referred to in text the reader may have had to do a small search for the images. One of the images (Image 8 )seems to be in the wrong section on page 3
+        \end{mdframed}
+        {\color{red}
+        
+        All images overhauled and updated to be more descriptive and self-contained. Font size within images has been increased where required for readability. Image 8 has been moved to the correct section and concensed for space.
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 6:}
+
+            In the graph of Figure 12, the labels are quite small try to make it bigger so it is easier to read.
+        \end{mdframed}
+        {\color{red}
+        
+        Font size within images has been increased where required for readability.
+
+        }
+\newpage
+\section{Comments on Review 2}
+
+    \subsection{Major Weakness Comments}
+
+        \begin{mdframed} \textbf{Major Comment 1:}
+            
+            \textit{References:} While the list of references is impressive and diverse, the formatting of the less standard choices is not acceptable. While ``private communication'' belong in the paper, that's usually reserved for written communication pertaining to new and undiscovered issues. Acknowledgments do not need to be referenced. Some other references (5-8) are more of footnotes/ draft notes and do not belong there. Other references (16) are incomplete.
+        \end{mdframed}
+        {\color{red}
+        
+            \begin{itemize}
+                \item I would argue that it is important to include ``private communication'' with any person (or persons) whom you significantly discussed ideas and concepts with.From this perspective, I have chosen to keep the private communications. However, I have added more specific information in each detailing the nature of the communication.
+                \item References in acknolwedgements have been removed.
+                \item Reference format used (which includes footnotes in the references) is part of the standard APS/AIP publication format and the report has been written in accordance with those guidelines.
+                \item Incomplete references updated with full information.
+            \end{itemize}
+        
+        }
+    \subsection{Minor Weakness Comments}
+
+        \begin{mdframed} \textbf{Minor Comment 1:}
+
+            Minor spelling mistakes, usually pluralisation (residuals is used for a single residual for example).Some figures are missing sufficient text (figure 8), some have very vague captions, some have double captions. Careful proofreading is necessary.
+        \end{mdframed}
+        {\color{red}
+        
+        \begin{itemize}
+            \item Report proof red and modified for clarity and spelling errors. 
+            \item Residuals kept as is (a single residual plot containes multiple residual points hence residuals). 
+            \item Figure captions have been updated to be more descriptive and self-contained.
+        \end{itemize}
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 3:}
+
+            There are too many figures for the scope of the paper. This needs to be addressed. Consider combining some figures together (e.g. 8 and 9 - figure and schematics, 11 and ``results shown later'') or including some information in one figure (e.g. Figure 2 doesn't provide that much detail, maybe there is a way to make it bigger and incorporate figures 5 and 6 in it as ``inserts''. I am not sure how much Figure 3 brings and the figure showing residuals doesn't seem to be used to determine validity of the model.
+        \end{mdframed}
+        {\color{red}
+        
+        Extrenous figures removed and combined where possible. Some figures relegated to the appendix. 
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 3:}
+
+            The table of contents is not necessary for a short paper.
+
+        \end{mdframed}  
+        {\color{red}
+        
+        Table of contents removed.
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 4:}
+
+            Z-type Schlieren Deflectometery is not well explained. In the text it is assumed the reader already understands Z-type Schlieren Deflectometrey before mentioning refinements to the setup. Diagrams and drawings are presented with little context as to the meanings of identified variables.
+
+        \end{mdframed}  
+        {\color{red}
+        
+        Z-type schlieren deflectometry description updated slightly as the specific method of Schlieren is not the primary focus of the report. Hence, specific udnderstanding is restricted to the context of the experiment. Diagrams have been updated to represent the experimental setup in a more clear and descriptive manner.
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 5:}
+
+            This is less related to the scientific content but more towards the possible implicit biases in the approach. While it makes sense to include title and last name for professor Braverman, you also include TAs last name but refer to technicians by the first name only. I know you are a very respectful person, and you don't mean it like that, but when the report is read by an external person, these things are noticed (we assume more casual relations with those we see as being below us than those being above us).
+        \end{mdframed}  
+        {\color{red}
+        
+        I had not taken this into account (as I did not know the technician's last name). However, I have found that information and updated the acknowledgements section accordingly
+
+        }
+
+\newpage
+\section{Additional Changes/Comments}
+    {\color{red}
+            
+    Additional data analysis conducted. Specifically, different colormaps applied in an effors to extract more quantitative information/data.
+
+    Additional background theory and references added.
+
+    }
+\newpage
+\bibliography[heading=none]{changelogNotes}
+
+\end{document}Reviewer

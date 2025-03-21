@@ -1,0 +1,131 @@
+\begin{tikzpicture}
+    \def\boxwidth{0.3}
+
+    \coordinate (Row1) at (0,0);
+    \coordinate (Row2) at (0,\boxwidth);
+    \coordinate (Row3) at (0,2*\boxwidth);
+    \coordinate (Row4) at (0,3*\boxwidth);
+    \coordinate (Row5) at (0,4*\boxwidth);
+    %\coordinate (Row5) at (0,5*\boxwidth);
+
+    % Layer 1
+    \draw[thick, pattern=north west lines] (0,0) rectangle (\boxwidth, \boxwidth);
+    \draw[pattern=dots] (0,\boxwidth) rectangle (\boxwidth, 2*\boxwidth);
+    \draw[fill=white] (0,2*\boxwidth) rectangle (\boxwidth, 3*\boxwidth);
+    \draw[pattern=dots] (0,3*\boxwidth) rectangle (\boxwidth, 4*\boxwidth);
+    \draw[pattern=north west lines] (0,4*\boxwidth) rectangle (\boxwidth, 5*\boxwidth);
+    \draw[pattern=north west lines] (0,5*\boxwidth) rectangle (\boxwidth, 6*\boxwidth);
+
+
+    % Layer 2
+    \draw[thick, pattern=north west lines] (\boxwidth,0) rectangle (2*\boxwidth, \boxwidth);
+    \draw[pattern=dots] (\boxwidth,\boxwidth) rectangle (2*\boxwidth, 2*\boxwidth);
+    \draw[fill=white] (\boxwidth,2*\boxwidth) rectangle (2*\boxwidth, 3*\boxwidth);
+    \draw[fill=white] (\boxwidth,3*\boxwidth) rectangle (2*\boxwidth, 4*\boxwidth);
+    \draw[pattern=north west lines] (\boxwidth,4*\boxwidth) rectangle (2*\boxwidth, 5*\boxwidth);
+    \draw[pattern=north west lines] (\boxwidth,5*\boxwidth) rectangle (2*\boxwidth, 6*\boxwidth);
+
+
+
+    % Layer 3
+    \draw[thick, pattern=dots] (2*\boxwidth,0) rectangle (3*\boxwidth, \boxwidth);
+    \draw[pattern=dots] (2*\boxwidth,\boxwidth) rectangle (3*\boxwidth, 2*\boxwidth);
+    \draw[pattern=north west lines] (2*\boxwidth,2*\boxwidth) rectangle (3*\boxwidth, 3*\boxwidth);
+    \draw[pattern=north west lines] (2*\boxwidth,3*\boxwidth) rectangle (3*\boxwidth, 4*\boxwidth);
+    \draw[fill=white] (2*\boxwidth,4*\boxwidth) rectangle (3*\boxwidth, 5*\boxwidth);
+    \draw[pattern=dots] (2*\boxwidth,5*\boxwidth) rectangle (3*\boxwidth, 6*\boxwidth);
+
+    
+
+    
+    % Layer 4
+    \draw[thick, pattern=north west lines] (3*\boxwidth,0) rectangle (4*\boxwidth, \boxwidth);
+    \draw[pattern=north west lines] (3*\boxwidth,\boxwidth) rectangle (4*\boxwidth, 2*\boxwidth);
+    \draw[pattern=north west lines] (3*\boxwidth,2*\boxwidth) rectangle (4*\boxwidth, 3*\boxwidth);
+    \draw[pattern=dots] (3*\boxwidth,3*\boxwidth) rectangle (4*\boxwidth, 4*\boxwidth);
+    \draw[pattern=dots] (3*\boxwidth,4*\boxwidth) rectangle (4*\boxwidth, 5*\boxwidth);
+    \draw[fill=white] (3*\boxwidth,5*\boxwidth) rectangle (4*\boxwidth, 6*\boxwidth);
+
+
+
+    % Layer 5
+    \draw[thick, pattern=north west lines] (4*\boxwidth,0) rectangle (5*\boxwidth, \boxwidth);
+    \draw[pattern=dots] (4*\boxwidth,\boxwidth) rectangle (5*\boxwidth, 2*\boxwidth);
+    \draw[pattern=dots] (4*\boxwidth,2*\boxwidth) rectangle (5*\boxwidth, 3*\boxwidth);
+    \draw[pattern=dots] (4*\boxwidth,3*\boxwidth) rectangle (5*\boxwidth, 4*\boxwidth);
+    \draw[pattern=dots] (4*\boxwidth,4*\boxwidth) rectangle (5*\boxwidth, 5*\boxwidth);
+    \draw[fill=white] (4*\boxwidth,5*\boxwidth) rectangle (5*\boxwidth, 6*\boxwidth);
+
+
+    % Layer 6
+    \draw[thick, pattern=north west lines] (5*\boxwidth,0) rectangle (6*\boxwidth, \boxwidth);
+    \draw[pattern=north west lines] (5*\boxwidth,\boxwidth) rectangle (6*\boxwidth, 2*\boxwidth);
+    \draw[pattern=dots] (5*\boxwidth,2*\boxwidth) rectangle (6*\boxwidth, 3*\boxwidth);
+    \draw[pattern=dots] (5*\boxwidth,3*\boxwidth) rectangle (6*\boxwidth, 4*\boxwidth);
+    \draw[fill=white] (5*\boxwidth,4*\boxwidth) rectangle (6*\boxwidth, 5*\boxwidth);
+    \draw[pattern=dots] (5*\boxwidth,5*\boxwidth) rectangle (6*\boxwidth, 6*\boxwidth);
+
+
+    % Layer 7
+    \draw[thick, pattern=dots] (6*\boxwidth,0) rectangle (7*\boxwidth, \boxwidth);
+    \draw[pattern=dots] (6*\boxwidth,\boxwidth) rectangle (7*\boxwidth, 2*\boxwidth);
+    \draw[pattern=dots] (6*\boxwidth,2*\boxwidth) rectangle (7*\boxwidth, 3*\boxwidth);
+    \draw[fill=white] (6*\boxwidth,3*\boxwidth) rectangle (7*\boxwidth, 4*\boxwidth);
+    \draw[pattern=dots] (6*\boxwidth,4*\boxwidth) rectangle (7*\boxwidth, 5*\boxwidth);
+    \draw[fill=white] (6*\boxwidth,5*\boxwidth) rectangle (7*\boxwidth, 6*\boxwidth);
+
+
+
+    % Layer 8
+    \draw[thick, pattern=dots] (7*\boxwidth,0) rectangle (8*\boxwidth, \boxwidth);
+    \draw[pattern=dots] (7*\boxwidth,\boxwidth) rectangle (8*\boxwidth, 2*\boxwidth);
+    \draw[fill=white] (7*\boxwidth,2*\boxwidth) rectangle (8*\boxwidth, 3*\boxwidth);
+    \draw[fill=white] (7*\boxwidth,3*\boxwidth) rectangle (8*\boxwidth, 4*\boxwidth);
+    \draw[pattern=dots] (7*\boxwidth,4*\boxwidth) rectangle (8*\boxwidth, 5*\boxwidth);
+    \draw[pattern=north west lines] (7*\boxwidth,5*\boxwidth) rectangle (8*\boxwidth, 6*\boxwidth);
+
+
+
+    % Layer 9
+    \draw[thick, fill=white] (8*\boxwidth,0) rectangle (9*\boxwidth, \boxwidth);
+    \draw[fill=white] (8*\boxwidth,\boxwidth) rectangle (9*\boxwidth, 2*\boxwidth);
+    \draw[pattern=dots] (8*\boxwidth,2*\boxwidth) rectangle (9*\boxwidth, 3*\boxwidth);
+    \draw[pattern=dots] (8*\boxwidth,3*\boxwidth) rectangle (9*\boxwidth, 4*\boxwidth);
+    \draw[pattern=north west lines] (8*\boxwidth,4*\boxwidth) rectangle (9*\boxwidth, 5*\boxwidth);
+    \draw[pattern=north west lines] (8*\boxwidth,5*\boxwidth) rectangle (9*\boxwidth, 6*\boxwidth);
+
+
+    % Layer 10
+    \draw[thick, pattern=north west lines] (9*\boxwidth,0) rectangle (10*\boxwidth, \boxwidth);
+    \draw[pattern=dots] (9*\boxwidth,\boxwidth) rectangle (10*\boxwidth, 2*\boxwidth);
+    \draw[pattern=dots] (9*\boxwidth,2*\boxwidth) rectangle (10*\boxwidth, 3*\boxwidth);
+    \draw[fill=white] (9*\boxwidth,3*\boxwidth) rectangle (10*\boxwidth, 4*\boxwidth);
+    \draw[pattern=dots] (9*\boxwidth,4*\boxwidth) rectangle (10*\boxwidth, 5*\boxwidth);
+    \draw[pattern=north west lines] (9*\boxwidth,5*\boxwidth) rectangle (10*\boxwidth, 6*\boxwidth);
+
+
+    % Layer 11
+    \draw[thick, fill=white] (10*\boxwidth,0) rectangle (11*\boxwidth, \boxwidth);
+    \draw[pattern=dots] (10*\boxwidth,\boxwidth) rectangle (11*\boxwidth, 2*\boxwidth);
+    \draw[fill=white] (10*\boxwidth,2*\boxwidth) rectangle (11*\boxwidth, 3*\boxwidth);
+    \draw[fill=white] (10*\boxwidth,3*\boxwidth) rectangle (11*\boxwidth, 4*\boxwidth);
+    \draw[pattern=dots] (10*\boxwidth,4*\boxwidth) rectangle (11*\boxwidth, 5*\boxwidth);
+    \draw[fill=white] (10*\boxwidth,5*\boxwidth) rectangle (11*\boxwidth, 6*\boxwidth);
+
+
+    % Layer 12
+    \draw[thick, fill=white] (11*\boxwidth,0) rectangle (12*\boxwidth, \boxwidth);
+    \draw[fill=white] (11*\boxwidth,\boxwidth) rectangle (12*\boxwidth, 2*\boxwidth);
+    \draw[pattern=dots] (11*\boxwidth,2*\boxwidth) rectangle (12*\boxwidth, 3*\boxwidth);
+    \draw[pattern=dots] (11*\boxwidth,3*\boxwidth) rectangle (12*\boxwidth, 4*\boxwidth);
+    \draw[pattern=north west lines] (11*\boxwidth,4*\boxwidth) rectangle (12*\boxwidth, 5*\boxwidth);
+    \draw[pattern=dots] (11*\boxwidth,5*\boxwidth) rectangle (12*\boxwidth, 6*\boxwidth);
+
+
+    %\draw[color=red, ultra thick] (0,0) rectangle (12*\boxwidth, 6*\boxwidth);
+
+    \draw[color=red, ultra thick] (0,0) rectangle (\boxwidth, 6*\boxwidth);
+
+    \draw[color=red, ->, ultra thick] (0, 6*\boxwidth+0.2) -- (12*\boxwidth, 6*\boxwidth+0.2) node [anchor=south, midway] {Time / Frame};
+
+\end{tikzpicture}

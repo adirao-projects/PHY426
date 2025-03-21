@@ -1,0 +1,62 @@
+\begin{tikzpicture}
+    \def\angle{-70}
+    \def\dist{4}
+
+    \begin{scope}[rotate=\angle]
+        \coordinate(mA1) at (-0.5,-\dist/2);
+        \coordinate(mA2) at (0.5,-\dist/2);
+        \coordinate(mA) at (0,-\dist/2);
+
+        \coordinate(mB1) at (-0.5,\dist/2);
+        \coordinate(mB2) at (0.5,\dist/2);
+        \coordinate(mB) at (0,\dist/2);
+
+        \draw[thick] (mA1) -- (mA2);
+        \fill[pattern=north west lines, draw=none] (mA1) rectangle ($(mA2)+(0,-0.25)$);
+
+        \draw[thick] (mB1) -- (mB2);
+        \fill[pattern=north west lines, draw=none] (mB1) rectangle ($(mB2)+(0,0.25)$);
+
+        \draw[dotted] (-0.5,\dist/2) -- (-0.5,-\dist/2);
+        \draw[dotted] (0.5,\dist/2) -- (0.5,-\dist/2);
+    \end{scope}
+
+
+    \coordinate (led) at ($(mA)+(\dist,0)$);
+    \coordinate (ke) at ($(mB)-(\dist,0)$);
+    \coordinate (cam) at ($(ke)-(\dist/2,0)$);
+    \coordinate (cam1) at ($(cam)+(0,0.25)$);
+    \coordinate (cam2) at ($(cam)+(0,-0.25)$);
+
+    \draw[dotted] (led) -- (mA1);
+    \draw[dotted] (led) -- (mA2);
+
+    \draw[dotted] (mB1) -- (ke);
+    \draw[dotted] (mB2) -- (ke);
+
+    \draw[dashed] (led) -- (mA) -- (mB) -- (ke) -- (cam);
+
+    \draw[ultra thick] ($(ke)+(0,0.2)$) -- ($(ke)+(0,-0.2)$);
+
+    \draw (led) circle (0.1);
+    
+    \draw[fill=black] ($(cam1)+(-0.5,0)$) rectangle ($(cam2)$);
+
+
+    \draw[dotted] (ke) -- (cam1);
+    \draw[dotted] (ke) -- (cam2);
+
+    \draw[color=black, pattern=dots] (0,0) circle (0.4)node[anchor=west, shift={(0.5,-0.2)}]{Imaging Area};
+
+    \draw[ultra thick, ->] ($(mB) + (0.7,0)$) -- ($(mB) + (0.7,0.6)$);
+    \draw[ultra thick, ->] ($(mB) + (0.7,0)$) -- ($(mB) - (-0.7,0.6)$);
+    \draw ($(mB) + (0.7,0)$)node[anchor=west]{Adjustment Rail};
+    \draw (mA)node[xshift=25, yshift=5]{$\theta$};
+
+    % Labels
+    \node[anchor=north, shift={(0,-0.5)}] at (mA) {Mirror \#1};
+    \node[anchor=south, shift={(0,0.5)}] at (mB) {Mirror \#2};
+    \node[anchor=north, shift={(0,-0.5)}] at (led) {LED Point Source};
+    \node[anchor=south, shift={(0,0.5)}] at (ke) {Knife Edge Polarizer};
+    \node[anchor=south, shift={(0,0.5)}] at ($(cam)+(-0.25,0)$) {Camera};
+\end{tikzpicture}

@@ -1,0 +1,167 @@
+\documentclass[reprint, amsmath,amssymb, amsthm, aip, cp]{revtex4-2}
+
+% LaTeX Template by Aditya Rao
+% Use this for organizing images for writing into laboratory notebooks.
+%=================== HEADER =====================%
+\usepackage[left=0.7in, right=0.7in, top=0.7in, bottom=0.7in]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+
+
+% Other Preamble
+\usepackage[leftmargin=1cm, rightmargin=1cm]{mdframed}
+\usepackage[colorlinks, allcolors=black]{hyperref}
+
+
+% Code Formatting
+\usepackage{listings}
+
+% Figures & Drawings
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{caption}
+
+% Physics & Mathematics
+\usepackage{physics}
+\usepackage{mathtools}
+%================================================%
+
+%=================== SETUP ======================%
+% Page styling
+\pagestyle{fancy}
+\pagenumbering{arabic}
+
+% Listings Setup
+\lstset{
+	basicstyle=\footnotesize,
+	numbers=left,
+	stepnumber=1,
+	showstringspaces=false,
+	tabsize=1,
+	breaklines=true,
+	breakatwhitespace=false
+}
+
+% Date Formatting
+\def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+%================================================%
+
+%=================== MACROS =====================%
+% The main stuff
+\let\origthefigure\thefigure
+
+\newcommand{\thedate}{00.00}
+\newcommand{\figbig}{0.9\linewidth}
+\newcommand{\figsml}{0.7\linewidth}
+\newcommand{\newdate}[1]{\newpage\renewcommand{\thedate}{#1}\section*{Date: \thedate}}
+\newcommand{\updatefig}[1]{\renewcommand{\thefigure}{\textbf{\thedate #1.\origthefigure}}\setcounter{figure}{0}}
+
+\newcommand{\updatetab}[1]{\renewcommand{\thefigure}{\textbf{\thedate #1.\origthefigure}}\setcounter{table}{0}}
+
+\newcommand{\updatecountfig}[1]{\setcounter{figure}{#1}}
+\newcommand{\updatecounttab}[1]{\setcounter{table}{#1}}
+
+\newcommand{\mdfigure}[2]{
+	\begin{mdframed}
+	\begin{figure}[H]
+		\centering
+		\captionsetup{width=\figsml}
+		\includegraphics[width=\figsml, max height=0.4\textheight]{#1}
+		\caption{#2}
+	\end{figure}
+	\end{mdframed}
+}
+
+\newcommand{\mdfiguretex}[2]{
+	\begin{mdframed}
+	\begin{figure}[H]
+		\centering
+		\captionsetup{width=\figsml}
+		\input{#1}
+		\caption{#2}
+	\end{figure}
+	\end{mdframed}
+}
+
+\newcommand{\mdtable}[2]{
+	\begin{mdframed}
+	\begin{figure}[H]
+		\centering
+		\captionsetup{width=\figsml}
+		\includegraphics[width=\figsml, max height=0.4\textheight]{#1}
+		\caption{#2}
+	\end{figure}
+	\end{mdframed}
+}
+
+% I like the Griffiths' script r
+%Script r (vector)
+\newcommand{\brc}{\resizebox{!}{1.3ex}{
+    \begin{tikzpicture}[>=round cap]
+        \clip (0.085em,-0.1ex) rectangle (0.61em,0.875ex);
+        \draw [line width=.2ex, <->, rounded corners=0.13ex] (0.1em,0.1ex) .. controls (0.24em,0.4ex) .. (0.35em,0.8ex) .. controls (0.29em,0.725ex) .. (0.25em,0.6ex) .. controls (0.7em,0.8ex) and (0.08em,-0.4ex) .. (0.55em,0.25ex);
+    \end{tikzpicture}
+}}
+
+%Script r with a hat (unit vector)
+\newcommand{\hrc}{\hat{\brc}}
+
+% References and Sourcing
+\newcommand{\figref}[1]{Fig. \ref{#1}}
+\newcommand{\source}[1]{\caption*{Source: {#1}} }
+%================================================%
+
+%==================== INFO =======================%
+\newcommand{\name}{Aditya K. Rao}
+\newcommand{\expname}{QIE}
+%================================================%
+
+\begin{document}
+\nocite{*}
+\lhead{\name\vspace{0.1cm}}
+\chead{\textbf{Advanced Physics Laboratory} \\ \expname\vspace{0.1cm}}
+\rhead{\textbf{LAST UPDATED:} \mydate\vspace{0.1cm}}
+
+
+\newdate{00.00}
+\updatefig{X}
+\mdfigure{example-image-a}{Example image for templating.}
+\mdfigure{example-image-b}{Long caption. \lipsum[1].}
+
+
+\newdate{03.11}
+\updatefig{A}
+\mdfigure{./images/03.11/expsetup1.jpg}{Intiial experimental setup prior to any changes. All components seem to be in place. Noticed no caps on extra APD detectors.}
+
+
+\mdfigure{./images/03.11/expsetup2.jpg}{Experimental setup within black box. Laser and powersupply and all other relavent components outlined in P03.11A turned off prior to opening.}
+
+
+\mdfigure{./images/03.11/tauval.png}{Initial fit of coincidence values and expected statistical correction. Slope found is given by $\tau = 0.0243 \pm 0.0006$ with a $\chi^2_{\text{red}} = 0.03$.}
+
+\newdate{03.14}
+\updatefig{A}
+
+\mdfigure{../Images/03.14/coincwithres.png}{Same fit of data as in Fig. 03.11A.3 but with residuals.}
+
+\newdate{03.18}
+\updatefig{A}
+
+\mdfigure{../Images/03.18/CcalcRes.png}{Plot of series of $N(90^\circ, 0^\circ)$ and $N(0^\circ, 90^\circ)$ data points to illustrate variation in data.}
+
+\newdate{03.19}
+\updatefig{A}
+
+\mdfiguretex{../Images/03.19/expsetup.tex}{Experimental setup ($405\,\text{nm}$).}
+
+\clearpage
+\appendix
+\bibliography{References.bib}
+\end{document}

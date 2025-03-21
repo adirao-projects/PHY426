@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+    \def\side{6}
+    \def\height{3}
+    \def\fmheight{2.5}
+    \def\thick{0.25}
+    \def\hpthick{0.5}
+
+    \coordinate (TLC) at ($(0,0) + (-\side/2, \side/2)$);
+    \coordinate (TRC) at ($(0,0) + (\side/2, \side/2)$);
+    \coordinate (BLC) at ($(0,0) + (-\side/2, -\side/2)$);
+    \coordinate (BRC) at ($(0,0) + (-\side/2, \side/2)$);
+
+    % Draw Medium
+    \draw[thick] (TLC) -- (TRC) -- (BRC) -- (BLC) -- cycle;
+
+\end{tikzpicture}

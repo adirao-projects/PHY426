@@ -1,0 +1,74 @@
+\begin{tikzpicture}
+    \def\side{3}
+    \def\height{3}
+    \def\fmheight{2.5}
+    \def\thick{0.25}
+    \def\hpthick{0.5}
+
+    \coordinate (TLC) at (-\side/2, \side/2);
+    \coordinate (TRC) at (\side/2, \side/2);
+    \coordinate (BLC) at (-\side/2, -\side/2);
+    \coordinate (BRC) at (\side/2, -\side/2);
+
+    \coordinate (TLC-dense) at ($(TLC)+(0,-1)$);
+    \coordinate (TRC-dense) at ($(TRC)+(0,-1)$);
+    \coordinate (BLC-dense) at ($(BLC)+(0,1)$);
+    \coordinate (BRC-dense) at ($(BRC)+(0,1)$);
+
+    % Draw Medium
+    \draw (TLC) rectangle (BRC);
+
+    % Dense Region
+    \draw[pattern=dots] (TLC-dense) rectangle (BRC-dense);
+
+    % Parallel Rays
+    \draw ($(TLC)+(-1,-\side/4)$) -- ($(TLC)+(0,-\side/4)$);
+    \draw[color=red] ($(TLC)+(-1,-\side/2)$) -- ($(TLC)+(0,-\side/2)$);
+    \draw ($(TLC)+(-1,-3*\side/4)$) -- ($(TLC)+(0,-3*\side/4)$);
+
+    % Refracting Rays
+    \draw ($(TLC)+(0,-\side/4)$) -- ($(TRC)+(0,-\side/4+0.1)$);
+    \draw[color=red] ($(TLC)+(0,-\side/2)$) -- ($(TRC)+(0,-\side/2+0.3)$);
+    \draw ($(TLC)+(0,-3*\side/4)$) -- ($(TRC)+(0,-3*\side/4+0.1)$);
+
+    % Refracting Rays
+    \draw[color=black] ($(TLC)+(0,-\side/4)$) -- ($(TRC)+(0,-\side/4-0.1)$);
+    \draw[color=red] ($(TLC)+(0,-\side/2)$) -- ($(TRC)+(0,-\side/2-0.3)$);
+    \draw[color=black] ($(TLC)+(0,-3*\side/4)$) -- ($(TRC)+(0,-3*\side/4-0.1)$);
+
+    % Refracted Rays
+    \draw ($(TRC)+(0,-\side/4+0.1)$) -- ($(TRC)+(1,-\side/4+0.1)$);
+    \draw[color=red] ($(TRC)+(0,-\side/2+0.3)$) -- ($(TRC)+(1,-\side/2+0.3)$);
+    \draw ($(TRC)+(0,-3*\side/4+0.1)$) -- ($(TRC)+(1,-3*\side/4+0.1)$);
+    
+    % Refracted Rays
+    \draw[color=black] ($(TRC)+(0,-\side/4-0.1)$) -- ($(TRC)+(1,-\side/4-0.1)$);
+    \draw[color=red] ($(TRC)+(0,-\side/2-0.3)$) -- ($(TRC)+(1,-\side/2-0.3)$);
+    \draw[color=black] ($(TRC)+(0,-3*\side/4-0.1)$) -- ($(TRC)+(1,-3*\side/4-0.1)$);
+
+    % Knife Edge
+    \coordinate (ket) at ($(TRC)+(1,0)$);
+    \coordinate (kec) at ($(TRC)+(1,-\side/2)$);
+    \coordinate (keb) at ($(BRC)+(1,0)$);
+
+    \draw[ultra thick] (kec) -- (keb)node[anchor=north]{Knife Edge};
+
+    
+    % Screen
+    \coordinate (scc) at ($(TRC)+(2,-\side/2)$);
+    \coordinate (sct) at ($(TRC)+(2,0)$);
+    \coordinate (scb) at ($(BRC)+(2,0)$);
+
+    \draw[thick] (sct)node[anchor=south]{Imaging Screen / Optic} -- (scb);
+
+    % Post Knife Edge Ray
+    \draw ($(ket)+(0,-\side/4+0.1)$) -- ($(sct)+(0,-\side/4+0.1)$);
+    \draw ($(ket)+(0,-\side/4-0.1)$) -- ($(sct)+(0,-\side/4-0.1)$);
+    \draw[color=red] ($(ket)+(0,-\side/2+0.3)$) -- ($(sct)+(0,-\side/2+0.3)$);
+
+    % Medium Label
+    \draw[ultra thick, dashed] ($(TLC)+(2*\side/3+0.5,0.2)$)node[anchor=south]{Medium} -- ($(TLC)+(2*\side/3+0.5,-0.4)$);
+
+    \draw[ultra thick, dashed] ($(TLC)+(\side/3-0.5,0.2)$)node[anchor=south]{Dense Region} -- ($(TLC)+(\side/3-0.5,-1.2)$);
+
+\end{tikzpicture}

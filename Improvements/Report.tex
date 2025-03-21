@@ -1,0 +1,263 @@
+\documentclass[aip, cp, amsmath, amssymb, reprint, nofootinbib]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{bm}
+
+\input{preamble/preamble}
+\input{preamble/tikz}
+\input{preamble/macros}
+
+
+% ========================================= %
+% LaTeX Template by Aditya K. Rao
+% Contact at adi.rao@mail.utoronto.ca
+
+% Change for each document [!!!]
+\newcommand\course{PHY426}	% Course Code [!!!]txt
+\newcommand\doctitle{Proposed Improvements \& Additions to Schlieren Experiment} % Report Title [!!!]
+\newcommand\firstauthorname{Aditya K. Rao}
+\newcommand\firstauthorstdnum{Student Number: 1008307761}
+\newcommand\firstauthoremail{adi.rao@mail.utoronto.ca}
+%\newcommand\secondauthorname{Author Two}
+%\newcommand\secondauthorstdnum{Student Number: 0000000000}
+%\newcommand\secondauthoremail{report.author@mail.utoronto.ca}
+\newcommand\advname{B. Braverman\space} % Advisor Name [!!!]  
+\newcommand\taname{A. Sloan\space} % Advisor Name [!!!] 
+\newcommand\lponename{Jack Wang\space}
+\newcommand\lptwoname{Yiheng Wang\space}
+\newcommand\lpthreename{Kai Lyu\space}  
+\newcommand{\location}{MP222} % Location [!!!]
+% ========================================= %
+ 
+% ============== EQUIPMENT ================ %
+
+\newcommand{\oscope}{\texttt{DSOX1202G}\space}
+\newcommand{\pdiode}{\texttt{DET36A2}\space}
+\newcommand{\hene}{\texttt{HNLS008L}\space}
+\newcommand{\cam}{\texttt{Alium 1800 U-500}\space}
+
+% ========================================= %
+
+
+\renewcommand{\abstractname}{Overview.}
+%\pagenumbering{gobble}
+\usepackage{listings}
+
+\renewcommand\lstlistingname{Code Reference}
+\renewcommand\lstlistlistingname{Code Reference}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\usepackage{circuitikz}
+
+%\addbibresource{references.bib}
+\usepackage{lipsum}
+\usetikzlibrary{calc}
+
+\begin{document}
+\onecolumngrid
+\pagenumbering{arabic}
+\title{\doctitle}
+\author{\firstauthorname}
+\email{\firstauthoremail}
+\thanks{\firstauthorstdnum}
+
+%\author{\lponename}
+%\author{\lptwoname}
+%\author{\lpthreename}
+
+%\email{report.author@mail.utoronto.ca}
+%\thanks{Student Number: 0000000000}
+\affiliation{
+University of Toronto \\
+\location, 60 St. George Street, Toronto, Ontario M5S 1A7, Canada.% Force line breaks with \\ if necessary
+}
+
+\date{\today} %Put in date of submission [!!!]
+
+\preprint{APS/123-QED}
+\begin{abstract}
+    For this improvement report, the author has opted to focus on improvements related to the Schlieren Imaging laboratory. In paritcular, these improvements revolve around the addition of a new experiment to image free convection in air. All of the apparatus required for this experiment is available in APL. The author has also provided a new method of data processing for the convection current experiment. This method, while not fully developed, shows promise and may be of use to future students. There are some furhter general improvements to the setup also included.
+\end{abstract}
+
+    \maketitle
+    %\tableofcontents 
+
+    \lhead{\firstauthorname\vspace{0.1cm}}
+    \chead{\textbf{\course} \\ \doctitle}
+    \rhead{\textbf{Prof:} \advname \\ \textbf{TA:} \taname}
+    \nocite{*}
+    %\newpage
+    %\twocolumngrid
+    % \section{Experimental Setup}
+    %     Improvements to the experimental setup range from the inclusion of additional apparatus to simply the removal of (semi) redudant equipment. A simple modification is directly imaging into the camera instead of using a reflecting mirror. Not only does this reduce the `smearing' effect caused by reflecting through the mirror, but more light also enters the camera sensor reducing the required exposure time.  
+    % \subsection{New Apparatus}
+    %     \subsubsection{Color Filters}
+    %         The inclusion of color filters would allow for dual color Schlieren imaging. This would allow for the visualization of different temperature gradients in the same image. This would be useful for the convection current experiment.
+    %     \subsubsection{Improved Water Heater}
+    %         Currently an aquarium water heater with minimal temperature control is provided to generate convection currents in the tank. The accuracy of this device is questionable, a more accurate water heater would be benificial for more fine tuning of the temperature gradients generated in the tank.
+    %     \subsubsection{Different Color Light Source}
+    %         The inclusion of a laser Schlieren deflectometry setup would allow for the visualization of the refractive index gradient in a medium. This would be useful for the convection current experiment as well as other experiments.
+    %     \subsubsection{Laser Schlieren Deflectometry}
+    %         The inclusion of a laser Schlieren deflectometry setup would allow for the visualization of the refractive index gradient in a medium. This would be useful for the convection current experiment as well as other experiments.
+    %     \subsection{Modification to Existing Setup}
+    %         \subsubsection{Rail Mount for Mirrors}
+    %             Adding a rail mount to \texttt{\#M2} would not only allow more precise control over the measurement system, but also allow the student to investigate the effect of different reflection angles on the Schlieren image. Prof. H. Kleine (UNSW)\footnote{The author and Prof. Kleine interacted over email regarding this issue.}\cite{kleine} stated that the accepted upperbound for such a setup is approximately 7\% while the current setup seems to be more than this upper bound. The result was a significant astigmatism leading to a reduced effective of the knife edge. 
+    %             The rail mount would also allow students to investigate the results of such astigmatism.
+    %         \subsubsection{Higher Quality Tank}
+    %             Currently, the water tank used for the convection current experiment seems to be standard aquarium tank glass. The problem with such a setup is the resultant reduction in quality, as suggested by both Prof. H. Kleine (UNSW) \cite{kleine} and Settles \cite{settles_2013}
+    % \section{Laboratory Manual}
+    %     The time table in the laboratory manual is quite useful, however, is somewhat unrealistic. It take, at times, significantly longer to setup up the convection current experiment. Instead, a selection of expriment should be provided similar to that in the \texttt{LENS} lab manual. Additionally, the diagrams in the manual would benifit from further explinations. Specifically, significant improvements may be made to the `theory' section of the manual. Some images the author has created are provided in the appendix should they be of use for improvements to the manual.
+    \vspace{-2cm}
+    \section{Modification to Existing Setup}
+        \subsection{Imaging Directly into Camera}
+        Currently the experimental setup suggested in the laboratory manual is good but could be significantly improved with some minor modification to existing equipment as well as the addition of a few minor components. 
+
+        The first trivial modification is to directly image into the camera instead of using a reflecting mirror. Not only does this reduce the `smearing' effect caused by reflecting through the mirror, but more light also enters the camera sensor reducing the required exposure time. This is illustrated in \figref{fig:direct-image}. 
+
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{0.49\linewidth}
+                \centering
+                \includegraphics[width=0.5\linewidth]{figures/pre.png}
+                %\input{figures/pre.png}
+                \caption{Sample image without proposed modifications.}
+                \label{fig:direct-image}
+            \end{subfigure}
+            \begin{subfigure}{0.49\linewidth}
+                \centering
+                \includegraphics[width=0.4\linewidth, angle=-90]{figures/sampleC.png}
+                \caption{Sample image with proposed modification}
+                \label{fig:freeconvection}
+            \end{subfigure}
+            \caption{Images before (a) and after (b) the modifications. Image (a) is of the heat gun proposed in the lab manual \cite{manual} while image (b) is of the proposed free convection experiment.}
+        \end{figure}
+
+        Though there is the concern of damaging the camera sensor at high enough LED settings, this can be mitigated through proper instruction to students (sufficient warnings in laboratory manual). A few more major benifits include that less light is needed from the LED, eliminating the requirement that the room be entirely dark. Additionally, the need for tinkering with the basedcam2 settings is effectively eliminated allowing students to focus on the phenomena they're imaging.
+
+        \subsection{Addition of Rail Mounts for Mirrors}
+        Adding a rail mount to \texttt{\#M2} would not only allow more precise control over the measurement system, but also allow the student to investigate the effect of different reflection angles on the Schlieren image. Prof. H. Kleine (UNSW)\footnote{The author and Prof. Kleine interacted over email regarding this issue.}\cite{kleine} stated that the accepted upperbound for such a setup is approximately $7^{\circ}$ while the current setup seems to be more than this upper bound. The result was a significant astigmatism leading to a reduced effective of the knife edge. 
+
+        \begin{figure}[H]
+            \centering
+            \scalebox{0.9}{\input{figures/experimental-setup2.tex}}
+            \caption{Improved diagram of the experimental setup. Modification to setup also included in the diagram. Adjustment rail would effectively change the angle of the mirror $\theta$ allowing for more precise control over the system.}
+        \end{figure}
+
+        The rail mount would also allow students to investigate the results of such astigmatism should they be more interested in improving the experimental setup rather than conducting a specific experiment. This also allows for further connections with the `lens' experiment should the student be interested in investigating the differences with the single mirror schlieren setup in the \texttt{LENS} lab.
+
+    \section{Investigation of Free Convection In Air}
+        Currently the laboratory manual focuses only one imaging convection currents with minor forays to other related areas. The method of Schleiren Imaging is incredibly versatile and interesting, even to students not explicetly interested in fluid dynamics. One experiment that was conducted by the author to investigate free convection in air \cite{adi} is outlined in the following section. The new data analysis procedure used by the author is outlined in the later section on Data Processing. This experiment was proposed to the author by Prof. B. Braverman duing the \texttt{PHY424} lab \cite{pbrave}.
+
+        In this proposed extension, the author investigated free convection in air using a metal fin heated to high temperatures. The experimental setup is shown in \figref{fig:freeconvectionfin}. The experiment was conducted using a hotplate to heat the metal fin and a thermocouple \cite{fluke} to record the temperature difference. The metal fin was placed in the imaging area and heated to high temperatures using a hotplate. To isolate heat to just the fins surface, insulating foam was placed beside the fin.
+
+        The objective of this experiment was to observe the transition between laminar and turbulent flow at the boundary layer of a heated metal fin. With the prediction that, at low temperatures, the flow would produce a laminar flow pattern and at high temperatures, the flow would produce a turbulent flow pattern. These patterns being generated through taking a slice of each frame of the evolution and comparing it to the rest of the evolution.
+
+
+        \begin{figure}[H]
+            \centering
+            \scalebox{0.7}{\input{figures/metalfin}}
+            \caption{Experimental setup for measuring free convection in air. The metal fin was placed in the imaging area and heated to high temperatures using a hotplate. To isolate heat to just the fins surface, insulating foam was placed beside the fin.}
+            \label{fig:freeconvectionfin}
+        \end{figure}
+
+        The output image of the experiment is shown in \figref{fig:freeconvection}. There are a variety of ways that students may analyse this data. The author proposes the `pixel-slice' method outlined in the following section.
+
+
+    \section{Data Processing}
+        A different method of data processing could be used to investigate free convection as a `timeseries' data. For every frame, one, or multiple, `pixel slice' were taken at the same set of points. This is better illustrated in \figref{fig:slice-1}. These slices could then be aggregated to for a `timeseries' of the data, in effect, showing the changes in temperature at each point over time, this is better illustrated in \figref{fig:slice-2}.
+
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{0.49\linewidth}
+                \centering
+                \scalebox{1.2}{
+                \input{figures/pixel-slice1}}
+                \caption{Sketch of pixel slice on free convection fin data, red area is where the box is sampled from.}
+                \label{fig:slice-1}
+            \end{subfigure}
+            \begin{subfigure}{0.49\linewidth}
+                \centering
+                \scalebox{1.2}{
+                \input{figures/pixel-slice2}}
+                \caption{Evolution of pixel slice over time.}
+                \label{fig:slice-2}
+            \end{subfigure}
+            \caption{Pixel slice methodology illustrations. \figref{fig:slice-1} shows the sampling of the slice while \figref{fig:slice-2} shows the evolution of the slice over time.}
+        \end{figure}
+
+        This slice methodology applied to the free convection in air experiment (outlined in the previous section) is shown in \figref{fig:slice-real} from the authors final \texttt{PHY424} report \cite{adi}.
+
+        % \begin{figure}[H]
+        %     \centering
+        %     \includegraphics[width=0.8\linewidth]{figures/Pixel Slice Real.png}
+        %     \caption{Pixel Slice methodology}
+        %     \label{fig:slice-real}
+        % \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{0.33\linewidth}
+                \includegraphics[width=0.5\linewidth]{figures/Pixel Slice Real.png}
+                \caption{Example of pixel slice taken for free convection fin experiment.}
+                \label{fig:slice-real}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.33\linewidth}
+                \centering
+                \includegraphics[width=0.47\linewidth, angle=-90]{figures/LAMINAR_RAW.png}
+                \caption{Still frame of tank while being heated.}
+                \label{fig:laminar1}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.33\linewidth}
+                \centering
+                \includegraphics[width=\linewidth]{figures/DATA.LAMINAR.png}
+                \caption{Evolution of pixel slice over time.}
+                \label{fig:laminar2}
+            \end{subfigure}
+            %\includegraphics[width=0.9\linewidth]{figures/DATA.LAMINAR.png}
+            \caption{Example of pixel slice methodology in action. \figref{fig:slice-real} shows a slice taken for the free convection experiment while \figref{fig:laminar1} and \figref{fig:laminar2} show the method applied to laminar flow data taken when trying to image convection currents.}
+            \label{fig:laminar}
+        \end{figure}
+
+        This methodology was also applied to data from Rayleigh-B{\'e}nard convection current experiment outlined in the laboratory manual\cite{manual} as a test. The laminar flow of a still frame can be seen in Figure \ref{fig:laminar1} and an analysis utilizing the pixel slice method present in Figure \ref{fig:laminar2}. In this image, the white lines represent faster air mixed with slower air. Given that the `time series' data in \figref{fig:laminar2} shows a relatively regular pattern, it shows that the flow is likely laminar. 
+
+        It should be noted that additional work needs to be done on this processing methodology, though what is provided seems to be a promising start and may be benificial to future students.
+
+    % Line to seperate report content from acknowledgements and references
+    \onecolumngrid
+    \begin{center}
+        \vspace{0.8cm}
+        \noindent\rule{0.9\textwidth}{0.5pt}
+    \end{center}
+
+    % \begin{acknowledgments}
+    %     The work conducted by the other lab partners was instrumental in this lab. Thank you to \lponename, \lptwoname, and \lpthreename for their help in setting up the equipment and conducting the experiments. Additionally, thank you to the Teaching Assistant \taname and Professor \advname for their guidance and support.
+    % \end{acknowledgments}
+
+\bibliography{references}
+
+% \appendix
+% \section{Images}
+% \begin{figure}[H]
+%     \centering
+%     \scalebox{1.5}{\input{figures/experimental-setup.tex}}
+%     \caption{Improved diagram of the experimental setup.}
+% \end{figure}
+
+
+% \begin{figure}[H]
+%     \centering
+%     \scalebox{1.5}{\input{figures/knife-edge.tex}}
+%     \caption{Roll of Knife Edge in Schlieren imaging setup.}
+% \end{figure}
+
+
+% \section{Additional Suggestions}
+
+%\subsection{Raw Data}
+%\subsection{Analysis Code}
+%\subsubsection{Toolkit}
+%\lstinputlisting{../toolkit.py}
+
+\end{document}

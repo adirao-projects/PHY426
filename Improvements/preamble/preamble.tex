@@ -1,0 +1,159 @@
+\usepackage{setspace}
+\usepackage{graphicx}% Include figure files
+\usepackage{fancyhdr}
+\setlength{\parindent}{0in}
+
+% Page Formatting
+\pagenumbering{arabic} %\pagenumbering{gobble}
+\onehalfspacing %doublespacing
+\pagestyle{fancy}
+%\usepackage{pdfpages}
+
+% Heading Formatting
+\headheight 32pt
+
+% Link Formatting
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	allcolors=black
+	%citecolor=black,
+	%filecolor=black,
+	%linkcolor=black,
+	%urlcolor=black
+}
+
+
+\usepackage{csvsimple}
+\usepackage{mdframed}
+
+\definecolor{commentsColor}{rgb}{0.497495, 0.497587, 0.497464}
+\definecolor{keywordsColor}{rgb}{0.541176, 0.168627, 0.886275}
+\definecolor{stringColor}{rgb}{0.000000, 0.558215, 0.135316}
+
+% Code Formatting
+\usepackage{listings}
+\lstset
+{ %Formatting for code
+	basicstyle=\footnotesize\ttfamily,
+	numbers=left,
+	%caption={},
+	%title={},
+	stepnumber=1,
+	showstringspaces=false,
+	tabsize=1,
+	breaklines=true,
+	breakatwhitespace=false,
+	frame=lines,
+	xleftmargin=2em,
+	framexleftmargin=1.5em,
+	commentstyle=\color{commentsColor}\ttfamily,
+  	stringstyle=\color{stringColor}\ttfamily,
+	keywordstyle=\color{keywordsColor}\bfseries,
+}
+\newcommand{\lstprompt}{>\!>\!>}
+\newcommand{\numberwithprompt}[1]{\footnotesize\ttfamily\selectfont \lstprompt}
+
+
+% https://tex.stackexchange.com/questions/340232/how-insert-a-character-at-the-begin-of-every-line-from-a-source-code
+\lstdefinestyle{console} {
+	basicstyle=\footnotesize\ttfamily,
+	numbers=left,
+	stepnumber=1,
+	showstringspaces=false,
+	tabsize=1,
+	breaklines=true,
+	breakatwhitespace=false,
+	frame=single,
+	xleftmargin=2em,
+	framexleftmargin=2.5em,
+	%backgroundcolor=\color{gray!55},
+	numberstyle=\numberwithprompt,
+	}
+
+% \lstdefinelanguage{psuedocode}{
+%   keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+%   keywordstyle=\color{blue}\bfseries,
+%   ndkeywords={class, export, boolean, throw, implements, import, this},
+%   ndkeywordstyle=\color{darkgray}\bfseries,
+%   identifierstyle=\color{black},
+%   sensitive=false,
+%   comment=[l]{//},
+%   morecomment=[s]{/*}{*/},
+%   commentstyle=\color{purple}\ttfamily,
+%   stringstyle=\color{red}\ttfamily,
+%   morestring=[b]',
+%   morestring=[b]"
+% }
+
+%\usepackage{algpseudocodex}
+%Book Stuff
+
+%\usepackage{algorithm}
+%\usepackage[noend]{algpseudocode}
+%\makeatletter
+%\def\BState{\State\hskip-\ALG@thistlm}
+%\makeatother
+
+% Figures & Drawings
+\usepackage{graphicx, caption}
+\usepackage{animate}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{pict2e}
+\usepackage{subcaption}
+
+% Physics
+\usepackage{physics}
+
+% Mathematics
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+%\usepackage{upgreek} % More Greek letters
+
+% I don't really know what this is but I don't want to break shit
+\usepackage{aliascnt}
+\newaliascnt{eqfloat}{equation}
+\newfloat{eqfloat}{h}{eqflts}
+\floatname{eqfloat}{Equation}
+\newcommand*{\ORGeqfloat}{}
+\let\ORGeqfloat\eqfloat
+\def\eqfloat{%
+	\let\ORIGINALcaption\caption
+	\def\caption{%
+		\addtocounter{equation}{-1}%
+		\ORIGINALcaption
+	}%
+	\ORGeqfloat
+}
+%}
+
+% Bibliography (Citations) Formatting
+
+%\usepackage{cite}
+\usepackage{caption}
+%\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+%works really really well, but no MLA format
+%\usepackage[backend=biber]{biblatex}
+%\bibliographystyle{apsrev4-1}
+%\usepackage[backend=biber,style=mla]{biblatex} %Doesn't print all sources for some reason
+
+
+%\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%% Loads a Times-like font. You can also load
+%% {newtxtext,newtxtmath}, but not {times}, 
+%% {txfonts} nor {mathtpm} as these packages
+%% are obsolete and have been known to cause problems.
+\usepackage{mathptmx} 
+
+
+\usepackage{amsthm}

@@ -1,0 +1,85 @@
+\begin{tikzpicture}
+    \coordinate (L) at (0,0);
+    \coordinate (M1) at (1.5,0);
+    \coordinate (M2) at (1.5,-1.5);
+    \coordinate (B) at (4,-1.5);
+    \coordinate (A) at (3,-1.5);
+    \coordinate (C) at (5.5,-1.5);
+
+    % Laser Symbol
+    \begin{scope}[scale=0.7]
+        \draw[ultra thick, fill = black] (0,0) circle (0.15);
+        \draw[rotate=0, very thick] (-0.5,0) -- (0.5,0);
+        \draw[rotate=90, very thick] (-0.5,0) -- (0.5,0);
+        \draw[rotate=45, very thick] (-0.5,0) -- (0.5,0);
+        \draw[rotate=135, very thick] (-0.5,0) -- (0.5,0);
+
+        \draw[rotate=22.5, thick] (-0.4,0) -- (0.4,0);
+        \draw[rotate=67.5, thick] (-0.4,0) -- (0.4,0);
+        \draw[rotate=112.5, thick] (-0.4,0) -- (0.4,0);
+        \draw[rotate=157.5, thick] (-0.4,0) -- (0.4,0);
+    \end{scope}
+
+
+    % Mirror #1
+    \begin{scope}[shift={(M1)}, rotate=-45]
+        \draw[ultra thick] (-0.5,0) -- (0.5,0);
+        \fill[pattern=north east lines] (-0.5,0) rectangle (0.5,0.30);
+        %\coordinate (M1) at (0,-0.15);
+    \end{scope}
+
+    % Mirror #2
+    \begin{scope}[shift={(M2)}, rotate=135]
+        \draw[ultra thick] (-0.5,0) -- (0.5,0);
+        \fill[pattern=north east lines] (-0.5,0) rectangle (0.5,0.30);
+        %\coordinate (M2) at (0,-0.15);
+    \end{scope}
+
+    % Camera/Eye
+    \begin{scope}[shift={(C)}, rotate=180]
+        % Eye
+        \draw[very thick] (0.5, 0.5) -- (0, 0) -- (0.5, -0.5);
+        \draw[very thick] (0.33, -0.3) arc (-30:30:0.6);
+    \end{scope}
+
+    % Apperature
+    \begin{scope}[shift={(A)}, scale=0.4]
+        \draw[thick, pattern=crosshatch] (-0.1,1.3) rectangle (0.1,0.2);
+        \draw[thick, pattern=crosshatch] (-0.1,-0.2) rectangle (0.1,-1.3);
+
+        \draw[thick, pattern=crosshatch] (-0.4,1.5) rectangle (0.4, 2.3);
+        \draw[thick, pattern=crosshatch] (-0.4,-1.5) rectangle (0.4, -2.3);
+
+        \draw[thick, fill=white] (-0.2,1.7) rectangle (0.2, 2.1);
+        \draw[thick, fill=white] (0,-1.9) circle (0.2);
+    \end{scope}
+
+    % Lens
+    \begin{scope}[shift={(B)}, scale=0.5]
+        %\draw[thick] (-0.3, -0.6) rectangle (0.3, 0.6);
+        %\draw[dashed] (-0.5,-0.5) -- (0.5,0.5);
+        %\coordinate (P1) at (0,0);
+        \draw (0,0) ellipse (0.3 and 0.8);
+        \filldraw[fill=white, color=white] (0,0.8) rectangle (-0.3,-0.8);
+        \draw (0,0.8) -- (0,-0.8);
+    \end{scope}
+
+    % Laser Path
+    \draw[ultra thick, dashed] (L) -- (M1) -- (M2) -- (A) -- (B) -- ($(C)-(0.4,0)$);
+
+    % Labels
+    \node[anchor=south, yshift=15] at (L) {Laser};
+    
+    \node[anchor=south, yshift=15] at (C) {Camera};
+    
+    \node[anchor=south, yshift=20] at (M1) {Mirror};
+    
+    \node[anchor=north, yshift=-20] at (M2) {Mirror};
+
+    \node[anchor=north, yshift=-35] at (A) {Square/Circular};
+    \node[anchor=north, yshift=-45] at (A) {Apperature};
+    
+    \node[anchor=south, yshift=35] at (B) {Plano-Convex};
+    \node[anchor=south, yshift=25] at (B) {Lens};
+
+\end{tikzpicture}
