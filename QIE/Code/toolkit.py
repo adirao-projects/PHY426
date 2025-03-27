@@ -181,11 +181,11 @@ def quick_plot(xdata, ydata, plot_x, plot_y,
     main_fig.set_title(metadata['title'], fontsize = 46)
     if len(xerr)==0:
         main_fig.errorbar(xdata, ydata, yerr=yerr, #xerr=uncertainty_x,
-                          markersize='4', fmt='o', color='red', 
+                          markersize='4', fmt='o', color='red', capsize=3,
                           label=metadata['data-label'], ecolor='black')
     else:
         main_fig.errorbar(xdata, ydata, yerr=yerr, xerr=xerr,
-                          markersize='4', fmt='o', color='red', 
+                          markersize='4', fmt='o', color='red', capsize=3, 
                           label=metadata['data-label'], ecolor='black')
     
     main_fig.plot(plot_x, plot_y, linestyle='dashed',
@@ -245,14 +245,14 @@ def plot_data(xdata, ydata, plot_x, plot_y,
     main_fig.set_title(metadata['title'], fontsize = 46)
     if len(xerr)==0:
         main_fig.errorbar(xdata, ydata, yerr=yerr, #xerr=uncertainty_x,
-                          markersize='4', fmt='o', color='red', 
-                          label=metadata['data-label'], ecolor='black')
+                          markersize='4', fmt='o', color='tab:red', capsize=4,
+                          label=metadata['data-label'], ecolor='tab:gray')
     else:
         main_fig.errorbar(xdata, ydata, yerr=yerr, xerr=xerr,
-                          markersize='4', fmt='o', color='red', 
-                          label=metadata['data-label'], ecolor='black')
+                          markersize='4', fmt='o', color='tab:red', capsize=4,
+                          label=metadata['data-label'], ecolor='tab:gray')
     
-    main_fig.plot(plot_x, plot_y, linestyle='dashed',
+    main_fig.plot(plot_x, plot_y, linestyle='dashed', color='tab:blue',
                   label=metadata['fit-label']) 
 
     main_fig.set_xlabel(metadata['xlabel'])
@@ -260,9 +260,10 @@ def plot_data(xdata, ydata, plot_x, plot_y,
     main_fig.legend(loc=metadata['loc'])
 
     if res:
-        res_fig.errorbar(xdata, residuals, markersize='3', color='red', fmt='o', 
-                        yerr=yerr, ecolor='black', alpha=0.7)
-        res_fig.axhline(y=0, linestyle='dashed', color='blue')
+        res_fig.errorbar(xdata, residuals, markersize='3', color='tab:red', 
+                         fmt='o', yerr=yerr, ecolor='tab:gray', alpha=0.7,
+                         capsize=4)
+        res_fig.axhline(y=0, linestyle='dashed', color='tab:blue')
         res_fig.set_title('Residuals')
 
     if save:

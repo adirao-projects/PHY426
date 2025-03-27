@@ -39,6 +39,14 @@ def hwp_angle(qwp, N_A45_B45, N_A00_B00, N_A90_AB0, C):
     
     return phi
 
+def calc_c(N_A90_B00, N_A00_B90):
+    nN_A90_B00, uN_A90_B00 = N_A90_B00
+    nN_A00_B90, uN_A00_B90 = N_A00_B90
+    
+    C = (1/2)*(nN_A90_B00 + nN_A00_B90)
+    uC = (1/2)*np.abs(uN_A90_B00 + uN_A00_B90)
+    
+    return C, uC
 
 if __name__ == '__main__':
     df_A00_B00 = load_data('../Data/03.18/N_B_0_A_0.txt')

@@ -42,7 +42,7 @@ def calculate_tau(df):
     data = tk.quick_analyze(df['Raw'], df['Cor'], fit_type='linear',
                             show=True, yerr=df['uCor'], meta=meta,
                             params = ['1/tau'], chi=True, res=True,
-                            path='../Images/03.14/', save=True)
+                            path='../Images/', save=True)
     tau = 1/data['popt'][0]
     utau = np.abs(data['pstd'][0]*(tau**2))
     return tau, utau
