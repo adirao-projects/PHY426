@@ -38,17 +38,27 @@ def calc_Nval(Ndata):
     return n, u
 
 
-def calc_Eab(nvals, c):
+def calc_Eab(nvals, cvals):
     num = 0
     den = 0
-    
+    c, uc = cvals
     num = nvals['A90B90'] + nvals['A00B00']
     den = num + nvals['A90B00'] + nvals['A00B90']
     
     num += -nvals['A90B00'] -nvals['A00B90']
     den -= 4*c
     
-    return num/den
+    frac = (1/(den**2))
+    
+    uncert = (frac*(2*(nvals['A90B00']+nvals['A00B90']) -4*c)*nvals['uA90B90'])**2
+    uncert += (frac*(2*(nvals['A90B00']+nvals['A00B90']) -4*c)*nvals['uA00B00'])**2
+    uncert += (frac*(num-den)*nvals['uA90B00'])**2
+    uncert += (frac*(num-den)*nvals['uA00B90'])**2
+    uncert += (frac*4*num*nvals['uA00B90'])**2
+    uncert = np.sqrt(uncert)
+    
+    
+    return num/den , uncert
 
 
 if __name__ == '__main__':
@@ -90,7 +100,7 @@ if __name__ == '__main__':
                ]
     
     S = 0
-    
+    uS = 0
     for v in evalues:
         angA = re.findall(r'A(m?\d+p?\d?)', v)[0]
         angB = re.findall(r'B(m?\d+p?\d?)', v)[0]
@@ -118,16 +128,18 @@ if __name__ == '__main__':
         nvals = {'A00B00':N0000[0],
                  'A90B90':N9090[0],
                  'A90B00':N9000[0],
-                 'A00B90':N0090[0]}
+                 'A00B90':N0090[0],
+                 'uA00B00':N0000[1],
+                 'uA90B90':N9090[1],
+                 'uA90B00':N9000[1],
+                 'uA00B90':N0090[1],}
         
-        
+        Svals = calc_Eab(nvals, (C, uC))
+        uS += Svals[1]**2
         if v == 'EAm45B22p5':
-            S -= calc_Eab(nvals, C)
+            S -= Svals[0]
+            
         else:
-            S += calc_Eab(nvals, C)
-        
-    print(S)
-        
-        
-        
-    
+            S += Svals[0]
+    uS = np.sqrt(uS)
+    print(f"Bell's: {S} +/- {uS}")       
