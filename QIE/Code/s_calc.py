@@ -8,18 +8,35 @@ Created on Thu Mar 27 11:17:48 2025
 """
 import numpy as np
 import pandas as pd
+from scipy import stats
 import matplotlib.pyplot as plt
 import re
 import toolkit as tk
 
+
 from c_const_calc import calc_c 
 
 
-def load_data(file_path, date='00.00', rawpath=False):
+def load_data(file_path, date='00.00', rawpath=False, rout=False):
+
     if rawpath:
+        
+        name = re.findall(r'\/N(.*).txt', file_path)
+        if len(name)==0:
+            name='Raw Coincidence'
+        else:
+            name = 'N'+name[0]
+        
         df = pd.read_csv(file_path, delimiter='\t', 
                          names=['Raw', 'Cor'], skiprows=1)
     else:
+        
+        name = re.findall(r'(.*).txt', file_path)
+        if len(name)==0:
+            name='Raw Coincidence'
+        else:
+            name = name[0]
+        
         df = pd.read_csv(fr'../Data/{date}/{file_path}', delimiter='\t', 
                      names=['Raw', 'Cor'], skiprows=1)
     
@@ -27,6 +44,22 @@ def load_data(file_path, date='00.00', rawpath=False):
     df['uCor'] = df['Cor'].std()
     
     df['Adj'] = df['Raw'] - df['Cor']
+    
+    if rout:
+        df = df[(np.abs(stats.zscore(df['Adj'])) < 1)]
+    
+    plt.figure(figsize=(20,7))
+    df['Adj'].plot(color='black')
+    plt.grid('on')
+    plt.axhline(0, linestyle='--', color='black')
+    plt.ylabel('Adjusted Coincidence Value')
+    plt.xlabel('Index of Data')
+    plt.legend(loc='upper right')
+    plt.title(f'Data: {name}')
+    plt.savefig(f'../Images/04.02/{name}')
+    plt.show()
+    
+    print(r'\mdfigure{' + f'../Images/04.02/{name}.png'+r'}{}')
     
     return df
 
@@ -92,6 +125,9 @@ if __name__ == '__main__':
     C = (1/2)*(N_A90_B00 + N_A00_B90)
     uC = (1/2)*np.abs(uN_A90_B00 + uN_A00_B90)
     
+    C = 5
+    uC = 3
+    
     # E Values for alpha beta etc.
     evalues = ['EA0B22p5', # E(a, b')
                'EAm45B22p5', # E(a', b')
@@ -117,13 +153,13 @@ if __name__ == '__main__':
         
         #print(angA00, angB00, angA90, angB90)
         N9090 = calc_Nval(load_data(fr'NA{angA90}B{angB90}_{v}.txt', 
-                                    date='03.27'))
+                                    date='03.27', rout=True))
         N0000 = calc_Nval(load_data(fr'NA{angA00}B{angB00}_{v}.txt',
-                                    date='03.27'))
+                                    date='03.27', rout=True))
         N9000 = calc_Nval(load_data(fr'NA{angA90}B{angB00}_{v}.txt', 
-                                    date='03.27'))
+                                    date='03.27', rout=True))
         N0090 = calc_Nval(load_data(fr'NA{angA00}B{angB90}_{v}.txt', 
-                                    date='03.27'))
+                                    date='03.27', rout=True))
         
         nvals = {'A00B00':N0000[0],
                  'A90B90':N9090[0],
@@ -136,6 +172,11 @@ if __name__ == '__main__':
         
         Svals = calc_Eab(nvals, (C, uC))
         uS += Svals[1]**2
+        
+        print('------')
+        print(v)
+        print(f'{Svals[0]} +/- {Svals[1]}')
+        
         if v == 'EAm45B22p5':
             S -= Svals[0]
             

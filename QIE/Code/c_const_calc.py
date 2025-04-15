@@ -31,7 +31,7 @@ def qwp_angle(N_A00_B00, N_A90_B90, C):
     
     return theta_l
 
-def hwp_angle(qwp, N_A45_B45, N_A00_B00, N_A90_AB0, C):
+def hwp_angle(qwp, N_A45_B45, N_A00_B00, N_A90_B00, C):
     arg = (4*(N_A45_B45))/(N_A00_B00 + N_A90_B90 - 2*C)
     arg = (1/(np.sin(2*qwp)))*(arg-1)
     
@@ -53,6 +53,8 @@ if __name__ == '__main__':
     df_A90_B00 = load_data('../Data/03.18/N_B_0_A_90.txt')
     df_A00_B90 = load_data('../Data/03.18/N_B_90_A_0.txt')
     df_A90_B90 = load_data('../Data/03.18/N_B_90_A_90.txt')
+    
+    df_A45_B45 = load_data('../Data/03.24/N4545_84.txt')
     df_raw = load_data('../Data/03.18/Raw_Coincidence.txt')
     
     plt.figure(figsize=(20,10))
@@ -70,11 +72,13 @@ if __name__ == '__main__':
     N_A90_B00 = df_A90_B00['Adj'].mean()
     N_A00_B90 = df_A00_B90['Adj'].mean()
     N_A90_B90 = df_A90_B90['Adj'].mean()
+    N_A45_B45 = df_A45_B45['Adj'].mean()
     
     uN_A00_B00 = df_A00_B00['Adj'].std()
     uN_A90_B00 = df_A90_B00['Adj'].std()
     uN_A00_B90 = df_A00_B90['Adj'].std()
     uN_A90_B90 = df_A90_B90['Adj'].std()
+    uN_A45_B45 = df_A45_B45['Adj'].std()
     
     C = (1/2)*(N_A90_B00 + N_A00_B90)
     uC = (1/2)*np.abs(uN_A90_B00 + uN_A00_B90)
@@ -85,7 +89,11 @@ if __name__ == '__main__':
     
     qwp = qwp_angle(N_A00_B00, N_A90_B90, C)
     uqwp = 0
+    
+    hwp = hwp_angle(qwp, N_A45_B45, N_A00_B00, N_A90_B00, C)
+    uhwp = 0
     print(f'{qwp} +/- {uqwp}')
+    print(f'{hwp} +/- {uhwp}')
     
     #df_A45_B45 = load_data('../Data/03.18/N_B_45_A_45.txt')
     

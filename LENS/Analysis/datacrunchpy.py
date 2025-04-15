@@ -238,7 +238,7 @@ if __name__ == '__main__':
     df_11 = df[df['lens-code']==1.1]
     df_12 = df[df['lens-code']==1.2]
     df_13 = df[df['lens-code']==1.3]
-    df_14 = df[df['lens-code']==1.4 ]
+    df_14 = df[df['lens-code']==1.4]
     
     
     #print(df)

@@ -1,13 +1,13 @@
 \begin{tikzpicture}
-    \coordinate (L) at (0,0);
-    \coordinate (M1) at (1.5,0);
-    \coordinate (M2) at (1.5,-1.5);
-    \coordinate (B) at (4,-1.5);
-    \coordinate (A) at (3,-1.5);
-    \coordinate (C) at (5.5,-1.5);
+    \coordinate (S) at (0.0,0);
+    \coordinate (A) at (1.2,0);
+    \coordinate (G) at (1.7,0);
+    \coordinate (L) at (3.0,0);
+    \coordinate (I) at (5.5,0);
+    \coordinate (B) at (0,-1.45);
 
     % Laser Symbol
-    \begin{scope}[scale=0.7]
+    \begin{scope}[shift={(S)}, scale=0.7]
         \draw[ultra thick, fill = black] (0,0) circle (0.15);
         \draw[rotate=0, very thick] (-0.5,0) -- (0.5,0);
         \draw[rotate=90, very thick] (-0.5,0) -- (0.5,0);
@@ -20,27 +20,12 @@
         \draw[rotate=157.5, thick] (-0.4,0) -- (0.4,0);
     \end{scope}
 
-
-    % Mirror #1
-    \begin{scope}[shift={(M1)}, rotate=-45]
-        \draw[ultra thick] (-0.5,0) -- (0.5,0);
-        \fill[pattern=north east lines] (-0.5,0) rectangle (0.5,0.30);
-        %\coordinate (M1) at (0,-0.15);
-    \end{scope}
-
-    % Mirror #2
-    \begin{scope}[shift={(M2)}, rotate=135]
-        \draw[ultra thick] (-0.5,0) -- (0.5,0);
-        \fill[pattern=north east lines] (-0.5,0) rectangle (0.5,0.30);
-        %\coordinate (M2) at (0,-0.15);
-    \end{scope}
-
-    % Camera/Eye
-    \begin{scope}[shift={(C)}, rotate=180]
-        % Eye
-        \draw[very thick] (0.5, 0.5) -- (0, 0) -- (0.5, -0.5);
-        \draw[very thick] (0.33, -0.3) arc (-30:30:0.6);
-    \end{scope}
+    % % Camera/Eye
+    % \begin{scope}[shift={(C)}, rotate=180]
+    %     % Eye
+    %     \draw[very thick] (0.5, 0.5) -- (0, 0) -- (0.5, -0.5);
+    %     \draw[very thick] (0.33, -0.3) arc (-30:30:0.6);
+    % \end{scope}
 
     % Apperature
     \begin{scope}[shift={(A)}, scale=0.4]
@@ -50,36 +35,62 @@
         \draw[thick, pattern=crosshatch] (-0.4,1.5) rectangle (0.4, 2.3);
         \draw[thick, pattern=crosshatch] (-0.4,-1.5) rectangle (0.4, -2.3);
 
-        \draw[thick, fill=white] (-0.2,1.7) rectangle (0.2, 2.1);
+        \draw[thick, fill=white] (0,1.9) circle (0.2);
         \draw[thick, fill=white] (0,-1.9) circle (0.2);
     \end{scope}
 
+    % Grid
+    \begin{scope}[shift={(G)}, scale=0.4]
+        \draw[thick, pattern=grid] (-0.15,1.5) rectangle (0.15,-1.5);
+    \end{scope}
+
     % Lens
-    \begin{scope}[shift={(B)}, scale=0.5]
+    \begin{scope}[shift={(L)}, scale=0.5]
         %\draw[thick] (-0.3, -0.6) rectangle (0.3, 0.6);
         %\draw[dashed] (-0.5,-0.5) -- (0.5,0.5);
         %\coordinate (P1) at (0,0);
-        \draw (0,0) ellipse (0.3 and 0.8);
-        \filldraw[fill=white, color=white] (0,0.8) rectangle (-0.3,-0.8);
-        \draw (0,0.8) -- (0,-0.8);
+        \draw[thick] (0,0) ellipse (0.4 and 0.8);
+        \filldraw[fill=white, color=white] (0,0.8) rectangle (-0.4,-0.8);
+        \draw[thick] (0,0.8) -- (0,-0.8);
+    \end{scope}
+
+    % Imaging screen
+    \begin{scope}[shift={(I)}, scale=0.4]
+        \draw[thick] (-0.1,1.5) rectangle (0.1,-1.5);
     \end{scope}
 
     % Laser Path
-    \draw[ultra thick, dashed] (L) -- (M1) -- (M2) -- (A) -- (B) -- ($(C)-(0.4,0)$);
+    \draw[ultra thick, dashed] (S) -- (A) -- (G) -- (L) -- (I);
+
+    % Optical Bench
+    \draw[pattern=crosshatch dots] ($(S)+(-0.7,0.15)+(B)$) rectangle ($(I)+(0.7,-0.15)+(B)$);
+
+    % Mounts
+    \draw[pattern=crosshatch] ($(S)+(B)+(0.2,0.2)$) rectangle ($(S)+(B)-(0.2,0.2)$);
+    \draw[ultra thick] ($(S)+(B)+(0,0.2)$) -- ($(S)+(0,-0.5)$);
+
+    \draw[pattern=crosshatch] ($(A)+(B)+(0.2,0.2)$) rectangle ($(A)+(B)-(0.2,0.2)$);
+    \draw[ultra thick] ($(A)+(B)+(0,0.2)$) -- ($(A)+(0,-1)$);
+
+    \draw[pattern=crosshatch] ($(G)+(B)+(0.2,0.2)$) rectangle ($(G)+(B)-(0.2,0.2)$);
+    \draw[ultra thick] ($(G)+(B)+(0,0.2)$) -- ($(G)+(0,-0.7)$);
+
+    \draw[pattern=crosshatch] ($(L)+(B)+(0.2,0.2)$) rectangle ($(L)+(B)-(0.2,0.2)$);
+    \draw[ultra thick] ($(L)+(B)+(0,0.2)$) -- ($(L)+(0,-0.6)$);
+
+    \draw[pattern=crosshatch] ($(I)+(B)+(0.2,0.2)$) rectangle ($(I)+(B)-(0.2,0.2)$);
+    \draw[ultra thick] ($(I)+(B)+(0,0.2)$) -- ($(I)+(0,-0.7)$);
+
+    \draw[<->] ($(L)+(B)+(-0.5,-0.5)$) -- ($(L)+(B)+(0,-0.5)$) -- ($(L)+(B)+(0.5,-0.5)$);
+
+    \draw[<->] ($(I)+(B)+(-0.5,-0.5)$) -- ($(I)+(B)+(0,-0.5)$) -- ($(I)+(B)+(0.5,-0.5)$);
 
     % Labels
-    \node[anchor=south, yshift=15] at (L) {Laser};
+    \node[anchor=south, yshift=15] at (S) {Light Source};
+    \node[anchor=south, yshift=25] at (A) {Apperature};
     
-    \node[anchor=south, yshift=15] at (C) {Camera};
-    
-    \node[anchor=south, yshift=20] at (M1) {Mirror};
-    
-    \node[anchor=north, yshift=-20] at (M2) {Mirror};
-
-    \node[anchor=north, yshift=-35] at (A) {Square/Circular};
-    \node[anchor=north, yshift=-45] at (A) {Apperature};
-    
-    \node[anchor=south, yshift=35] at (B) {Plano-Convex};
-    \node[anchor=south, yshift=25] at (B) {Lens};
+    \node[anchor=south, yshift=16] at (G) {Grid};
+    \node[anchor=south, yshift=25] at (L) {Lens};
+    \node[anchor=south, yshift=25] at (I) {Screen};
 
 \end{tikzpicture}

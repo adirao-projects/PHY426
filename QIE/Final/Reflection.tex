@@ -1,0 +1,115 @@
+%{
+%Formattting
+\documentclass[11pt,a4paper]{article}
+\usepackage[right=0.7in, left=0.7in, top=1in, bottom=0.75in]{geometry}
+\usepackage{fancyheadings}
+\usepackage{setspace}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{0in}
+\usepackage{listings}
+%\usepackage{autobreak}
+\lstset
+{ %Formatting for code in appendix
+	basicstyle=\footnotesize,
+	numbers=left,
+	stepnumber=1,
+	showstringspaces=false,
+	tabsize=1,
+	breaklines=true,
+	breakatwhitespace=false
+}
+\pagenumbering{gobble}
+%Mathematics
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{aliascnt}
+
+\makeatletter
+\newcommand{\crossout}[1]{%
+	\begingroup
+	\settowidth{\dimen@}{#1}%
+	\setlength{\unitlength}{0.05\dimen@}%
+	\settoheight{\dimen@}{#1}%
+	\count@=\dimen@
+	\divide\count@ by \unitlength
+	\begin{picture}(0,0)
+		\put(0,0){\line(20,\count@){20}}
+		\put(0,\count@){\line(20,-\count@){20}}
+	\end{picture}%
+	#1%
+	\endgroup
+}
+\usepackage{tikz}
+\newcommand\halmos{\rule{.36em}{2ex}}
+\newcommand{\powerset}[1]{\mathcal{P}(#1)}
+\def\contradict{\tikz[baseline, x=0.22em, y=0.22em, line width=0.032em]\draw (0,2.83)--(2.83,0) (0.71,3.54)--(3.54,0.71) (0,0.71)--(2.83,3.54) (0.71,0)--(3.54,2.83);}
+
+%Citations
+%\usepackage{cite}
+\usepackage[backend=bibtex,style=verbose-trad2]{biblatex} %works really really well, but no MLA format
+%\usepackage[backend=biber,style=mla]{biblatex} %Doesn't print all sources for some reason
+%\addbibresource{Math-IA.bib}
+%\bibliography{MathIA} 
+%Symbols and Other
+\newcommand{\figref}[1]{Fig. \ref{#1}}
+\newcommand{\source}[1]{\caption*{Source: {#1}} }
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	allcolors=black
+	%linkcolor=black,
+	%urlcolor=black
+}
+%\addtolength{\oddsidemargin}{-.875in}
+%\addtolength{\evensidemargin}{-.875in}
+%\addtolength{\textwidth}{1.75in}
+%\addtolength{\topmargin}{-.875in}
+%\addtolength{\textheight}{1.75in}
+\onehalfspacing
+%\doublespacing
+\pagestyle{fancy}
+%\theoremstyle{definition}
+%\newtheorem{defn}{Definición}
+%\newtheorem{reg}{Regla}
+%\newtheorem{ejer}{EJERCICIO}
+%\pagestyle{fancyplain}
+\headheight 32pt
+%\lhead{\yourname\ \vspace{0.1cm} \\ \course}
+%\chead{\textbf{\Large PUMP II}}
+%}
+\usepackage{pdfpages}
+\lhead{\yourname\ \vspace{0.1cm}}
+\chead{\textbf{\subject}\\\psetnum}
+\rhead {\href{mailto:adityakrao.work@gmail.com}{adityakrao.work@gmail.com} \\
+\href{mailto:adi.rao@mail.utoronto.ca}{adi.rao@mail.utoronto.ca}\\ \href{tel:14168025648}{+1 (416)-802-5648}}
+\newcommand\course{University of Toronto}
+\newcommand\psetnum{Reflection: Quantum Interference and Entanglement} 
+\newcommand\yourname{Aditya Kanuru Rao}  
+\newcommand{\subject}{\large{\course}}
+\begin{document}
+	\title{\vspace{-4cm}\psetnum}
+	 %\title{\psetnum}  
+        \author{\yourname}
+	\date{\vspace{-0.3em}\textbf{Email:} \href{mailto:adityakrao.work@gmail.com}{adityakrao.work@gmail.com} \textbf{|} \href{mailto:adi.rao@mail.utoronto.ca}{adi.rao@mail.utoronto.ca}\\\textbf{Phone:} \href{tel:14168025648}{+1 (416)-802-5648}}
+	%\titlepic{\includegraphics[width=0.6\linewidth]{images/lm-logo.png}}
+        \vspace{0cm}
+	\maketitle
+\vspace{-1.2cm}
+%\newpage
+\rule{\linewidth}{0.5pt}
+
+\textbf{}
+
+The Quantum Interference and Entanglement experiment was one of the most interesting to me. It was a topic that I had a deep interest in from an interepretations of quantum mechanics point of view. Working with a lab partner was an adjustment, however, I felt that it did improve our overall efficiency in terms of getting results. However, it did restrict the amount of time I could be in the lab. Reason being that I did not want to inadvertaintly mess up the experimental setup while trying new things.
+
+We did obtain relatively good results and I feel this ended up being one of hte most complete experiments I had done. Complete in the sense that my laboratory book was neat, well organized, time and date stamped, included uncertainty discussions for the final results, and included all procedures. Additionally, I included a lengthy disucssion about the interepretations of quantum mechanics and the possibility of extending this expreiment to replicate a `timing-experiment' (as done by Aspect).
+
+That being said, there were some issues. The first being, in the begining of the experiment, I was not as careful with errorbars and uncertainty calculations. My justification was that we were just getting an initial feel for the setup. When asked about the errorbars of the `coincidence-values' during my experiment interview, I was only able to justify these as the standard deviation of the results. I do stand by this, however, I could have been better. Additionally, we had made a mistake with respect to the quartz-plate calibration. This may have adjusted our results, however, the overall experimental goal of showing entanglement was still achieved as we found $S=2.3\pm 0.5$ (uncertainty may have been smaller if we performed more runs).
+
+I do have some minor issues with regards to the organization. However, I feel very satisfied with the work I completed within this experiment and proud of the lab notebook I produced.
+
+
+\end{document}

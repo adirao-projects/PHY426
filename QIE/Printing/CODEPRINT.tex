@@ -1,0 +1,165 @@
+\documentclass[reprint, amsmath,amssymb, amsthm, aip, cp]{revtex4-2}
+
+% LaTeX Template by Aditya Rao
+% Use this for organizing images for writing into laboratory notebooks.
+%=================== HEADER =====================%
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inpute nc}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+
+
+% Other Preamble
+\usepackage[leftmargin=1cm, rightmargin=1cm]{mdframed}
+\usepackage[colorlinks, allcolors=black]{hyperref}
+
+
+% Code Formatting
+\usepackage{listings}
+
+% Figures & Drawings
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{caption}
+\usetikzlibrary{patterns}
+\usetikzlibrary{calc}
+
+% Physics & Mathematics
+\usepackage{physics}
+\usepackage{mathtools}
+%================================================%
+
+%=================== SETUP ======================%
+% Page styling
+\pagestyle{fancy}
+\pagenumbering{arabic}
+
+% Listings Setup
+\lstset{
+	basicstyle=\footnotesize,
+	numbers=left,
+	stepnumber=1,
+	showstringspaces=false,
+	tabsize=1,
+	breaklines=true,
+	breakatwhitespace=false
+}
+
+% Date Formatting
+\def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+%================================================%
+
+%=================== MACROS =====================%
+% The main stuff
+\let\origthefigure\thefigure
+
+\newcommand{\thedate}{00.00}
+\newcommand{\figbig}{0.9\linewidth}
+\newcommand{\figsml}{0.7\linewidth}
+\newcommand{\newdate}[1]{\newpage\renewcommand{\thedate}{#1}\section*{Date: \thedate}}
+\newcommand{\updatefig}[1]{\renewcommand{\thefigure}{\textbf{\thedate #1.\origthefigure}}\setcounter{figure}{0}}
+
+\newcommand{\updatetab}[1]{\renewcommand{\thefigure}{\textbf{\thedate #1.\origthefigure}}\setcounter{table}{0}}
+
+\newcommand{\updatecountfig}[1]{\setcounter{figure}{#1}}
+\newcommand{\updatecounttab}[1]{\setcounter{table}{#1}}
+
+\newcommand{\mdfigure}[2]{
+	\begin{mdframed}
+	\begin{figure}[H]
+		\centering
+		\captionsetup{width=\figsml}
+		\includegraphics[width=\figsml, max height=0.4\textheight]{#1}
+		\caption{#2}
+	\end{figure}
+	\end{mdframed}
+}
+
+\newcommand{\mdfiguretex}[2]{
+	\begin{mdframed}
+	\begin{figure}[H]
+		\centering
+		\captionsetup{width=\figsml}
+		\input{#1}
+		\caption{#2}
+	\end{figure}
+	\end{mdframed}
+}
+
+\newcommand{\mdtable}[2]{
+	\begin{mdframed}
+	\begin{figure}[H]
+		\centering
+		\captionsetup{width=\figsml}
+		\includegraphics[width=\figsml, max height=0.4\textheight]{#1}
+		\caption{#2}
+	\end{figure}
+	\end{mdframed}
+}
+
+
+\newcommand{\mdcode}[1]{
+	\begin{mdframed}
+	% \lstset{frame=shadowbox,escapechar=`,linewidth=6cm}
+	\lstinputlisting[language=python]{#1}
+	\end{mdframed}
+}
+
+% I like the Griffiths' script r
+%Script r (vector)
+\newcommand{\brc}{\resizebox{!}{1.3ex}{
+    \begin{tikzpicture}[>=round cap]
+        \clip (0.085em,-0.1ex) rectangle (0.61em,0.875ex);
+        \draw [line width=.2ex, <->, rounded corners=0.13ex] (0.1em,0.1ex) .. controls (0.24em,0.4ex) .. (0.35em,0.8ex) .. controls (0.29em,0.725ex) .. (0.25em,0.6ex) .. controls (0.7em,0.8ex) and (0.08em,-0.4ex) .. (0.55em,0.25ex);
+    \end{tikzpicture}
+}}
+
+%Script r with a hat (unit vector)
+\newcommand{\hrc}{\hat{\brc}}
+
+% References and Sourcing
+\newcommand{\figref}[1]{Fig. \ref{#1}}
+\newcommand{\source}[1]{\caption*{Source: {#1}} }
+%================================================%
+
+%==================== INFO =======================%
+\newcommand{\name}{Aditya K. Rao}
+\newcommand{\expname}{QIE}
+%================================================%
+
+\begin{document}
+\nocite{*}
+\lhead{\name\vspace{0.1cm}}
+\chead{\textbf{Advanced Physics Laboratory} \\ \expname\vspace{0.1cm}}
+\rhead{\textbf{LAST UPDATED:} \mydate\vspace{0.1cm}}
+
+
+\newdate{04.04}
+\updatefig{CODE}
+
+\lstinputlisting[language=python, caption={Code for calculating $C$}]{../Code/c_const_calc.py} 
+
+\clearpage
+
+\lstinputlisting[language=python, caption={Code for calculating $S$}]{../Code/s_calc.py}
+\clearpage
+\lstinputlisting[language=python, caption={My lab tookit (work in progress), used in all other code.}]{../Code/toolkit.py}
+
+\clearpage
+
+\lstinputlisting[language=python, caption={Old coincidence counting code.}]{../Code/coincidencecalc.py}
+
+\clearpage
+
+\lstinputlisting[language=python, caption={Initial analysis code}]{../Code/analysis.py}
+
+\clearpage
+\appendix
+\bibliography{References.bib}
+\end{document}

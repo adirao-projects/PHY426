@@ -1,0 +1,114 @@
+%{
+%Formattting
+\documentclass[11pt,a4paper]{article}
+\usepackage[right=0.7in, left=0.7in, top=1in, bottom=0.75in]{geometry}
+\usepackage{fancyheadings}
+\usepackage{setspace}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{0in}
+\usepackage{listings}
+%\usepackage{autobreak}
+\lstset
+{ %Formatting for code in appendix
+	basicstyle=\footnotesize,
+	numbers=left,
+	stepnumber=1,
+	showstringspaces=false,
+	tabsize=1,
+	breaklines=true,
+	breakatwhitespace=false
+}
+\pagenumbering{gobble}
+%Mathematics
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{aliascnt}
+
+\makeatletter
+\newcommand{\crossout}[1]{%
+	\begingroup
+	\settowidth{\dimen@}{#1}%
+	\setlength{\unitlength}{0.05\dimen@}%
+	\settoheight{\dimen@}{#1}%
+	\count@=\dimen@
+	\divide\count@ by \unitlength
+	\begin{picture}(0,0)
+		\put(0,0){\line(20,\count@){20}}
+		\put(0,\count@){\line(20,-\count@){20}}
+	\end{picture}%
+	#1%
+	\endgroup
+}
+\usepackage{tikz}
+\newcommand\halmos{\rule{.36em}{2ex}}
+\newcommand{\powerset}[1]{\mathcal{P}(#1)}
+\def\contradict{\tikz[baseline, x=0.22em, y=0.22em, line width=0.032em]\draw (0,2.83)--(2.83,0) (0.71,3.54)--(3.54,0.71) (0,0.71)--(2.83,3.54) (0.71,0)--(3.54,2.83);}
+
+%Citations
+%\usepackage{cite}
+\usepackage[backend=bibtex,style=verbose-trad2]{biblatex} %works really really well, but no MLA format
+%\usepackage[backend=biber,style=mla]{biblatex} %Doesn't print all sources for some reason
+%\addbibresource{Math-IA.bib}
+%\bibliography{MathIA} 
+%Symbols and Other
+\newcommand{\figref}[1]{Fig. \ref{#1}}
+\newcommand{\source}[1]{\caption*{Source: {#1}} }
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	allcolors=black
+	%linkcolor=black,
+	%urlcolor=black
+}
+%\addtolength{\oddsidemargin}{-.875in}
+%\addtolength{\evensidemargin}{-.875in}
+%\addtolength{\textwidth}{1.75in}
+%\addtolength{\topmargin}{-.875in}
+%\addtolength{\textheight}{1.75in}
+\onehalfspacing
+%\doublespacing
+\pagestyle{fancy}
+%\theoremstyle{definition}
+%\newtheorem{defn}{Definición}
+%\newtheorem{reg}{Regla}
+%\newtheorem{ejer}{EJERCICIO}
+%\pagestyle{fancyplain}
+\headheight 32pt
+%\lhead{\yourname\ \vspace{0.1cm} \\ \course}
+%\chead{\textbf{\Large PUMP II}}
+%}
+\usepackage{pdfpages}
+\lhead{\yourname\ \vspace{0.1cm}}
+\chead{\textbf{\subject}\\\psetnum}
+\rhead {\href{mailto:adityakrao.work@gmail.com}{adityakrao.work@gmail.com} \\
+\href{mailto:adi.rao@mail.utoronto.ca}{adi.rao@mail.utoronto.ca}\\ \href{tel:14168025648}{+1 (416)-802-5648}}
+\newcommand\course{University of Toronto}
+\newcommand\psetnum{Reflection: Nuclear Magnetic Resonance} 
+\newcommand\yourname{Aditya Kanuru Rao}  
+\newcommand{\subject}{\large{\course}}
+\begin{document}
+	\title{\vspace{-4cm}\psetnum}
+	 %\title{\psetnum}  
+        \author{\yourname}
+	\date{\vspace{-0.3em}\textbf{Email:} \href{mailto:adityakrao.work@gmail.com}{adityakrao.work@gmail.com} \textbf{|} \href{mailto:adi.rao@mail.utoronto.ca}{adi.rao@mail.utoronto.ca}\\\textbf{Phone:} \href{tel:14168025648}{+1 (416)-802-5648}}
+	%\titlepic{\includegraphics[width=0.6\linewidth]{images/lm-logo.png}}
+        \vspace{0cm}
+	\maketitle
+\vspace{-1.2cm}
+%\newpage
+\rule{\linewidth}{0.5pt}
+
+\textbf{}
+
+The high-temperature superconductors lab was a natural follow up to my previous lab (SQM) and was an intersting extension. In that lab I had investigated the effects of a superconductor, however, I had no direct experience with creating superconductors or with the thermal processes involved. This lab was extremely  challenging, time consucming, and frusterarting. However, it was also extremely rewarding as it incorperated various skills and techniques that I had learned in previous labs and courses.
+
+My primary issues with the lab revolved around the setup and data collection. Baking the crystals was extremely time consuming and an entire week was lost simply on that step. Additionally, the lock in amplifier setup was not well documented (as the instructional videos were confusiong) and, I and my partner felt, that we did not recieve enough guidance on how to set it up. This was a significant issue as the lock in amplifier was a key component of the lab and was required for the data collection.
+
+That being said, when we did figure out how it worked, it was extrmeley satisfying and a good learning experience. However, the primary issue overall with this lab was the time cosntraints. Once everyrthign was setup there was not enough time to perform an adquate amount of data collection or analysis. More frusterartingly, once we notices a problem in our experimental setup, we were unable to fix it due to time constraints. This was a significant issue as we were unable to get good data and, as such, were unable to do a proper data analysis.
+
+In effect, this lab was a significant test of time management skills. Additionally, it was the only lab I have taken with a partner in this course thus far which was good experience. Overall, while this lab was furstering and challenging, it was also extremely rewarding and facinating. In a sense, it served as a culmination of all the skills and techniques I had learned in this, and previous previous labs and courses.
+
+\end{document}

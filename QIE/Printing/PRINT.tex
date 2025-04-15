@@ -6,7 +6,7 @@
 \usepackage[left=0.7in, right=0.7in, top=0.7in, bottom=0.7in]{geometry}
 
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inpute nc}
 \usepackage{setspace}
 \usepackage{fancyhdr}
 \usepackage{lipsum}
@@ -103,6 +103,14 @@
 	\end{mdframed}
 }
 
+
+\newcommand{\mdcode}[1]{
+	\begin{mdframed}
+	\lstset{frame=shadowbox,escapechar=`,linewidth=6cm}
+	\lstinputlisting[language=python]{#1}
+	\end{mdframed}
+}
+
 % I like the Griffiths' script r
 %Script r (vector)
 \newcommand{\brc}{\resizebox{!}{1.3ex}{
@@ -166,6 +174,71 @@
 \updatefig{E}
 \updatecountfig{2}
 \mdfiguretex{../Images/03.19/expsetup.tex}{Experimental setup ($405\,\text{nm}$).}
+
+\newdate{03.26}
+\updatefig{A}
+\mdfigure{../Images/UCat/HWP.png}{Half Waveplate and Quartz Plate apparatus.}
+
+\updatefig{B}
+\mdfigure{../Images/UCat/LASER.jpg}{$405\,\text{nm}$ Diode Laser (beginning of setup.)}
+
+\updatefig{C}
+\mdfigure{../Images/UCat/APD.png}{Avalanche Photodiode (APD) detector and Polarizer Setup.}
+
+\newdate{03.22}
+\updatefig{A}
+\mdfigure{../Images/03.22/BBO.png}{The extraordinary and ordinary refractive indices (and their difference) as a function of direction for beta barium borate (BBO) at $\lambda=500\,\text{nm}$ ($n_o=1.68$ and $n_e = 1.56$) \cite{pwoptics}.}
+
+
+\newdate{03.27}
+\updatefig{A}
+\mdfigure{../Images/04.02/NA90B112p5_EA0B22p5.png}{}
+\mdfigure{../Images/04.02/NA0B22p5_EA0B22p5.png}{}
+\mdfigure{../Images/04.02/NA90B22p5_EA0B22p5.png}{}
+\mdfigure{../Images/04.02/NA0B112p5_EA0B22p5.png}{}
+
+
+\updatefig{B}
+\mdfigure{../Images/04.02/NA45B112p5_EAm45B22p5.png}{}
+\mdfigure{../Images/04.02/NAm45B22p5_EAm45B22p5.png}{}
+\mdfigure{../Images/04.02/NA45B22p5_EAm45B22p5.png}{}
+\mdfigure{../Images/04.02/NAm45B112p5_EAm45B22p5.png}{}
+
+\updatefig{C}
+\mdfigure{../Images/04.02/NA90B67p5_EA0Bm22p5.png}{}
+\mdfigure{../Images/04.02/NA0Bm22p5_EA0Bm22p5.png}{}
+\mdfigure{../Images/04.02/NA90Bm22p5_EA0Bm22p5.png}{}
+\mdfigure{../Images/04.02/NA0B67p5_EA0Bm22p5.png}{}
+
+\updatefig{E}
+\mdfigure{../Images/04.02/NA45B67p5_EAm45Bm22p5.png}{}
+\mdfigure{../Images/04.02/NAm45Bm22p5_EAm45Bm22p5.png}{}
+
+\newdate{03.25}
+\updatefig{A}
+\mdfigure{../Images/04.02/NA45Bm22p5_EAm45Bm22p5.png}{}
+\mdfigure{../Images/04.02/NAm45B67p5_EAm45Bm22p5.png}{}
+
+
+\newdate{03.30}
+\updatefig{B}
+\mdfigure{../Images/03.30/aspect.png}{Illustration between delay time and coincidence rate \cite{aspect_2025} known as the \textit{Time Delay Spectrum}. The flat background corresponds with accidental coincidences between uncorrelated photons emitted by different atoms and scales with the square, $N^2$, of the cascade rate. The peak, whos area scales with $N$, corresponds with the correlated photons and gives the coincidences to be measured.}
+
+
+\newdate{04.03}
+\updatefig{A}
+\mdfigure{../Images/04.02/sipe.png}{Space like seperated regions as $S_A$ is not in the backward lightcone of $S_B$. Figure from Prof. Sipe's PHY491 notes \cite{sipe}.}
+
+\updatefig{B}
+\mdfigure{../Images/04.02/RAO1.png}{(a) Two events/interactions  at the same spacetime location are local. (b) Two time-like events separated by a distance preserve Einstein's locality condition. (c) Two space-like seperated events are nonlocal. Figure and caption from \cite{rao2024investigating}.}
+
+\updatefig{C}
+\mdfigure{../Images/04.02/RAO2.png}{Quantum teleportation circuit as described (with modification) by Nielson and Chuang \cite{nielsen_chuang_2010}. The first Hadamard ($\hat{H}$) and CNOT gates describe the creation of a Bell state. Figure and caption from \cite{rao2024investigating}.}
+
+\newdate{04.04}
+\updatefig{A}
+\mdfigure{../Images/UCat/APD.png}{APD and polarizer setup. This is the same figure as Fig 03.2C.1. The main thing to note is that the fibers are not adequately spaced before the measurement devices.}
+
 
 \clearpage
 \appendix

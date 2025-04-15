@@ -1,0 +1,236 @@
+\documentclass[%
+ aip,
+% jmp,
+% bmf,
+% sd,
+% rsi,
+cp,  % Conference Proceedings
+ amsmath,amssymb,
+% preprint,%
+ reprint,%
+%author-year,%
+%author-numerical,%
+]{revtex4-2}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%% Loads a Times-like font. You can also load
+%% {newtxtext,newtxtmath}, but not {times}, 
+%% {txfonts} nor {mathtpm} as these packages
+%% are obsolete and have been known to cause problems.
+\usepackage{mathptmx} 
+
+\usepackage{physics}
+\usepackage{tikz}
+
+\usepackage{amsthm}
+\usepackage{subcaption}
+
+
+
+\usepackage{fancyhdr}
+\usepackage{mdframed}
+
+% ========================================= %
+% Change for each document [!!!]b
+\newcommand\course{PHY426}	% Course Code [!!!]
+\newcommand\doctitle{Letter To Editor} % Report Title [!!!]
+\newcommand\firstauthorname{Aditya K. Rao}
+%\newcommand\firstauthorname{Report Author}
+%\newcommand\secondauthorname{Jillian Henkel 1006804282}
+\newcommand\taname{Prof. T. Shaaran} % TA Name [!!!]    volume={1},
+\newcommand{\location}{MP247} % Location [!!!]
+% ========================================= %
+
+\begin{document}
+\onecolumngrid
+\pagenumbering{arabic}
+\title{\doctitle}
+\author{\firstauthorname}
+\email{adi.rao@mail.utoronto.ca}
+\thanks{Student Number: 1008307761}
+%\email{report.author@mail.utoronto.ca}
+%\thanks{Student Number: 0000000000}
+\affiliation{
+University of Toronto \\
+\location, 60 St. George Street, Toronto, Ontario M5S 1A7, Canada.% Force line breaks with \\ if necessary
+}
+\maketitle
+
+\lhead{\firstauthorname\vspace{0.1cm}}
+\chead{\textbf{\course} \\ \doctitle}
+\rhead{\textbf{Date:} \location}
+
+
+\date{\today} %Put in date of submission [!!!]
+
+\preprint{APS/123-QED}
+
+\section{Comments on Review 1}
+    \subsection{Major Weakness Comments}
+        \begin{mdframed} \textbf{Major Comment 1:}
+
+            \textit{Methodology:} The methodology section effectively describes the experimental setup and procedures, but there are several areas where clarity and organization could be improved. A major issue is the lack of references to the figures in the text. Although figures such as Fig. 2, Fig. 3, and Fig. 4 are included, they are not explicitly mentioned or linked to specific parts of the text. This disconnect makes it more difficult for the reader to correlate the descriptions of the setup and procedures with the visual aids, which would be especially helpful in understanding the arrangement of the apparatus and how measurements were
+            taken.
+
+        \end{mdframed}
+        {\color{red}
+        
+        References have now been added within the text. Figures references for data have been added.
+
+        }
+        \begin{mdframed} \textbf{Major Comment 2:}
+
+            \textit{Methodology:} The explanation of the optical components and their alignment is thorough, but referencing the figures
+            directly when discussing the experimental setup would make it clearer for readers to visualize the process. For instance, when describing the adjustments made to the lamp and lens, referencing Fig. 2 and Fig. 3 would help the reader follow along more easily. Doing so would also improve the flow of the methodology and make the procedure more replicable for others.
+        \end{mdframed}
+        {\color{red}
+
+            Figure has been revamped in the methodology section to be more descriptive and useful. The labels are now defined in the text and the figures. The light paths are also described in the text. Caption now includeds definitions for all abbreviations.
+
+        }
+        \begin{mdframed} \textbf{Major Comment 3:} 
+
+            \textit{Methodology:} 
+            Another point that needs clarification is the use of the $3\times3$ grid to measure geometric magnification and distortions. While it is mentioned that a grid was placed before the lens to mitigate distortion effects, there is no clear explanation of how the grid, shown in Fig. 4, was integrated into the experiment. Referring to this figure directly and explaining how the grid was used in the setup would provide better insight into how the measurements contributed to understanding the distortion effects. Furthermore, the caption for Fig. 4, which mentions ``$3\times3$ grid points used to mitigate distortion effects,'' is somewhat ambiguous, and it's unclear what the grid represents in the context of the experiment, especially since the image shows more than a $3\times3$ grid. A more detailed explanation of its role in the data collection process would improve the reader's understanding of how it helps minimize distortion.
+        \end{mdframed}
+        {\color{red}
+        
+            Some clarification has been added to the methodology. However, much of the magnification and distortion analysis has been cut due to new data analysis suggesting that the data collected was not useful.
+
+        }
+        \begin{mdframed} \textbf{Major Comment 4:}
+
+            \textit{References:} Missing components of the analysis and results.
+
+
+            One notable area of improvement in the report is the insufficient use of citations, particularly in the theory section. The theoretical concepts presented, such as the thin lens equation and the chromatic aberration formulas, are not supported by any references, which weakens the credibility of the report. For instance, when introducing the thin lens equation, it would be important to cite the original sources or relevant textbooks that describe the equation. Providing such citations not only adds credibility but also allows readers to explore the background and historical context of these equations in greater detail.
+
+            Moreover, the equations for magnification and focal length (such as Equation 1 and Equation 2) should reference optics textbooks or research papers where these formulas were introduced. Without proper citations, readers may question the validity of these equations and the theoretical framework of the experiment. Providing citations would also help clarify the theoretical underpinnings of the experiment and demonstrate how the methods and results relate to existing literature. For example, when discussing chromatic aberration and the related equations, citing specific studies or sources would give the reader a clearer understanding of how these principles have been experimentally verified in the past. 
+
+            However, the report does a great job in citing the tools used for data analysis, such as Pandas and NumPy. Another good example is the citation you did with Isaac Barrow and Christiaan Huygens. It would be very great if similar citations were applied to equations in the theory section
+        \end{mdframed}
+        {\color{red}
+        
+            Additional citations added for all theoretical equations and any extra citations relavent to the theory described in the introduction.
+
+        }
+
+        \begin{mdframed} \textbf{Major Coment 5:}
+
+            \textit{Figures \& Labeling:} Another major issue in the report is the lack of proper labeling in the diagrams, which makes it difficult for the reader to understand the content of the figures. For instance, in Figure 1, the labels
+            ``BF,'' ``FP,'' ``BP,'' and ``BF'' are not explained in the report, leaving the reader unclear about what these abbreviations represent.
+
+            The diagram doesn't connect to the text, making it hard to follow the described experimental setup. Additionally, the light paths in green and blue are shown, but they are not described—are they incident, reflected, or refracted rays? Without this clarification, the reader is left to guess the role of these light paths in the experiment. Proper labeling and detailed descriptions of these components can help the diagrams align better with the experimental procedure and theoretical concepts discussed in the report.
+        \end{mdframed}
+        {\color{red}
+        
+            Fig. 1 and Fig. 2 overhauled to be more descriptive and useful. The labels are now defined in the text and the figures. The light paths are also described in the text. Caption now includeds definitions for all abbreviations.
+
+        }
+
+        \begin{mdframed} \textbf{Major Coment 6:}
+
+            \textit{Figures \& Labeling:} Furthermore, in the methodology section, the labels ``O1'' and ``O2'' in Figure 2 are not defined or referenced, which is problematic since these appear crucial for replicating the experiment. The methodology should provide sufficient detail so that others can follow the exact steps and understand the significance of each component of the experimental setup. To improve this, the report should ensure that every diagram is labeled, with all abbreviations, symbols or light paths described. This would make the report more easier to understand and can help others replicate the experiment.
+            
+        \end{mdframed}
+        {\color{red}
+        Fig. 1 and Fig. 2 were from the laboratory manual due to time contraints when working on the report. I have overhauled both using  using \texttt{tikz} to be more descriptive and useful.  The labels are now defined in the text and the figures. The light paths are also described in the text. Caption now includeds definitions for all abbreviations.
+
+        }
+
+        \section{Minor Weakness Comments}
+        \begin{mdframed} \textbf{Minor Comment 1:}
+
+            I found that the data in the graphs of Figure 5, 6, 7 are too small as seen below (from Figure 7).
+
+            The data points in the analysis section are too small, making it difficult for the reader to see them clearly, especially when viewed on a standard laptop or when printed. The points are tiny that, unless zoomed in to 100\%, they appear blurred or indistinguishable. Additionally, the error bars appears to be too thin, which makes it challenging to differentiate between closely spaced points. For example, two red points placed near each other may appear as a single point or as part of an error bar (Figure 5), instead of being recognized as two separate data points. Enlarging the points and thickening the error bars would greatly improve visibility and make the data easier to interpret.
+        \end{mdframed}
+        {\color{red}
+
+            I have adjusted the parameters in the code to make the points larger and the error bars thicker. Similarly for the axes. Some figures had small error bars. These were not changed
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 2:}
+
+            Another weakness is that Figures 7 and 8 are placed next to each other, with their captions positioned below both images. This arrangement is confusing for the reader, making it difficult to determine which image corresponds to Figure 7 and which corresponds to Figure 8. To improve clarity, the figures should be spaced apart, and each should have its own clearly labeled caption directly below it, ensuring that the reader can easily distinguish between the two.
+        \end{mdframed}
+        {\color{red}
+        
+            This was a formatting issue I had not initially caught. Fig 7 should not exist as the caption for Fig 8 is the actual one to be used. Additionally, the Spectroscope data for Helium was included twice (intead of one Helium and one Hydrogen). I have removed the duplicate and added the correct one.
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 3:}
+
+            Another weakness is that while you include citations for tools like NumPy and pandas in your bibliography, they are not explicitly referenced anywhere in the main text. It would be beneficial to mention in the methodology that data was analyzed using Python and its associated libraries or to reference them in the Results and Analysis section when discussing data processing.
+        \end{mdframed}
+        {\color{red}
+        
+            Since these tools were used quite generally in the data analysis. I did not find it necessary to cite their specific use in the report. However, I have included some of these data anylysis tools (i.e. curvefit) were cited in text.
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 4:}
+
+            Make sure to maintain consistency when referring to figures in your report. Your figure captions use ``FIGURE 2,'' but within the text, you refer to them as "Fig. 2." Keeping the formatting uniform throughout the report can enhance clarity and readability.
+
+        \end{mdframed}
+        {\color{red}
+        
+            I believe that either way it is understood that these are figures. The formatting used for in-text citation of images is consistent across the report (same for caption in images generally).
+
+        }
+        \begin{mdframed} \textbf{Minor Comment 5:}
+
+            In your graphs, such as Figure 6, the x-axis lacks units. Since the x-axis represents wavelength, it should include appropriate units, which in this case is likely nanometers (nm). Clearly labeling axes with correct units will ensure clarity and prevents misinterpretation of the data. Adding units would improve the readability of the figure as well.            
+        \end{mdframed}
+        {\color{red}
+        
+            Units added for all axis (or arb. for dimensionless quantitites).
+
+        }
+        
+\newpage
+\section{Comments on Review 2}
+
+    \subsection{Major Weakness Comments}
+
+        \begin{mdframed} \textbf{Major Comment 1:}
+            
+            \textit{Abstract \& Conclusion:} Claims made in the abstract and conclusion have no numerical results from the paper to back them up, leaving the abstract and conclusion dependent on the reader fully understanding the report incomplete.
+        \end{mdframed}
+        {\color{red}
+        
+            Numericals added.
+        
+        }
+    \subsection{Minor Weakness Comments}
+
+        \begin{mdframed} \textbf{Minor Comment 1:}
+
+            Figure captions too short to fully describe figures without context of report.
+        \end{mdframed}
+        {\color{red}
+        
+            Captions improved to be more descriptive.
+
+        }
+       
+        \begin{mdframed} \textbf{Minor Comment 3:}
+
+            Figure 4 might be better as a diagram instead of a picture
+
+        \end{mdframed}  
+        {\color{red}
+            I started making this, however, I was unable to complete it within the submission time. Therefore, I have not changed the image. 
+        }
+        
+\newpage
+\bibliography[heading=none]{changelog.bib}
+
+\end{document}Reviewer
